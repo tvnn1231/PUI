@@ -1,0 +1,146 @@
+* {
+    background-color: #FFF5D6;
+}
+
+body {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1 {
+    font-family: 'Sacramento', cursive;
+    font-size: 4em;
+}
+
+nav {
+    font-family: 'Josefin Slab', serif;
+    font-size: 2em;
+}
+
+body {
+    font-family: 'Josefin Slab', serif;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+a:hover {
+    color: #C37960;
+    text-decoration: underline;
+    text-decoration-color: #C37960;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.empty {
+    width: 73.5px;
+}
+
+.logo {
+    width: 73.5px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    margin-left: 55px;
+    margin-right: 55px;
+}
+
+
+/* Home Page */
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    position: relative;
+    text-align: center;
+    color: #C37960;
+}
+
+.slide {
+    width: 1236px;
+    height: 629px;
+}
+
+.carousel-img {
+    width: 1150px;
+    max-height: 100%;
+}
+
+.carousel-l-arrow img,
+.carousel-r-arrow img {
+    background-color: transparent;
+    width: 31.5px;
+    height: 63px;
+}
+
+.carousel-l-arrow {
+    background-color: transparent;
+    position: absolute;
+    left: 50px;
+    top: 283px;
+}
+
+.carousel-r-arrow {
+    background-color: transparent;
+    position: absolute;
+    right: 50px;
+    top: 283px;
+}
+
+.carousel-caption {
+    background-color: transparent;
+    font-family: 'Sacramento', cursive;
+    color: #C37960;
+    font-size: 4em;
+    line-height: 1em;
+    position: absolute;
+    right: 120px;
+    bottom: 70px;
+}
+
+/* Product Browsing */
+
+.browsing-caption {
+    font-size: 1.3em;
+    width: 500px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.browsing-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.browsing-img {
+    width: 342.5px;
+    height: 250px;
+    border: 1px solid black;
+}
+
+.product-name {
+    font-size: 1.3em;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.product-price {
+    font-size: 1.3em;
+    margin-top: 5px;
+}
