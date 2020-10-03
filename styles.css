@@ -155,6 +155,7 @@ nav a {
 
 .detail-container {
     display: flex;
+    margin-bottom: 80px;
 }
 
 .detail-original-container {
@@ -180,6 +181,10 @@ nav a {
     font-size: 1.5em;
 }
 
+.dropdowns {
+    margin: 58px 0;
+}
+
 .detail-dropdown {
     font-size: 1.5em;
     display: block;
@@ -190,6 +195,14 @@ select {
     font-family: 'Josefin Slab', serif;
     font-size: 1em;
     border-radius: 5px;
+}
+
+#quantity {
+    width: 160px;
+} 
+
+#glaze {
+    width: 200px;
 }
 
 .add-to-cart {
