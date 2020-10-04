@@ -149,6 +149,10 @@ nav a {
 
 /* Product Detail */
 
+#cart-anchor {
+    height: 64px;
+}
+
 .back {
     font-size: 1.2em;
 }
