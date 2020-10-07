@@ -12,11 +12,6 @@ h1 {
     font-size: 4em;
 }
 
-/* nav {
-    font-family: 'Josefin Slab', serif;
-    font-size: 2em;
-} */
-
 body {
     font-family: 'Josefin Slab', serif;
 }
@@ -26,7 +21,8 @@ a {
     color: #000000;
 }
 
-a:hover {
+a:hover,
+.active {
     color: #A65C43;
     text-decoration: underline;
     text-decoration-color: #A65C43;
@@ -207,6 +203,11 @@ select {
 
 #glaze {
     width: 200px;
+}
+
+.select-option {
+    font-family: 'Josefin Slab', serif;
+    font-size: 1em;
 }
 
 .add-to-cart {
