@@ -24,8 +24,9 @@
 
         <p class="back"><a href="product-browsing.html">&lt; Continue Shopping</a></p>
 
-        <div class="cart-container">
-            <div class="cart-items">
+        <div class="cart-container"> <!-- Contains product info, total, and check out button -->
+
+            <div class="cart-items"> <!-- Contains product image, details, and dropdowns -->
                 <img src="images/rob-sarmiento-RbqgLewxyXo-unsplash-cart.jpg" alt="Original" class="cart-img">
                 <div class="cart-items-details">
                     <p class="cart-details-name">Original</p>
@@ -39,7 +40,7 @@
                                 <option value="6">6</option>
                                 <option value="12">12</option>
                             </select>
-                        </div>
+                        </div> <!-- .cart-details-dropdown -->
                         <div class="cart-details-dropdown">
                             <label for="cart-glaze">Glaze:</label>
                             <select name="cart-glaze" id="cart-glaze">
@@ -48,16 +49,19 @@
                                 <option value="Vanilla-milk">Vanilla-milk</option>
                                 <option value="Double Chocolate">Double Chocolate</option>
                             </select>
-                        </div>
-                    </div> <!-- cart-dropdowns -->
-                </div> <!-- cart-items-details -->
+                        </div> <!-- .cart-details-dropdown -->
+                    </div> <!-- .cart-dropdowns -->
+                </div> <!-- .cart-items-details -->
                 <img class="cart-X" src="images/cart-X.svg" alt="X-icon">
-            </div> <!-- cart-items -->
+            </div> <!-- .cart-items -->
+
+            <!-- Total and checkout button -->
             <p class="cart-total">Total: $7.50</p>
             <div class="check-out-btn-div">
                 <button class="check-out-btn">Check Out</button>
             </div>
-        </div> <!-- cart-container -->
+
+        </div>
 
     </body>
 
