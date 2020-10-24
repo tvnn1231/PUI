@@ -5,7 +5,7 @@
         <title>Bun Bun Bake Shop</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="styles.css">
-        <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@400;600;700&family=Sacramento&display=swap" rel="stylesheet">  
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@400;600;700&family=Sacramento&display=swap" rel="stylesheet"> 
     </head>
     
     <body>
@@ -13,7 +13,22 @@
         <header>
             <a href="index.html"><img src="images/Bun_Bun.svg" alt="Bun Bun logo" class="logo"></a>
             <h1>Cinnamon Rolls</h1>
-            <a id="cart-anchor" href="cart-page.html"><img src="images/Cart.svg" alt="cart icon" class="cart-icon"></a>
+            <div class="detail-cart-container">
+                <div class="cart-icon-container">
+                    <a id="cart-anchor" href="cart-page.html"><img src="images/Cart.svg" alt="cart icon" class="cart-icon"></a>
+                    <p id="cart-number" class="cart-number-centered">0</p>
+                </div>
+                <div id="cart-hover" class="hidden">
+                    <img src="" alt="">
+                    <div class="cart-hover-details">
+                        <p id="cart-hover-name"></p>
+                        <p id="cart-hover-price"></p>
+                        <p id="p-cart-hover-qty">Quantity: <div id="cart-hover-qty"></div></p>
+                        <p id="p-cart-hover-glaze">Glaze: <div id="cart-hover-glaze"></div></p>
+                    </div>
+                    <button class="cart-hover-btn">Check Out</button>
+                </div>
+            </div>
         </header>
 
         <nav>
@@ -52,11 +67,13 @@
                     </div>
                 </div> <!-- .dropdowns -->
 
-                <button class="add-to-cart">Add to Cart</button>
+                <button id="add-to-cart" name="Original" price="$2.50">Add to Cart</button>
             
             </div> <!-- .detail-original-container -->
         </div> <!-- .detail-container -->
 
     </body>
+
+    <script type="text/javascript" src="script.js"></script>
 
 </html>

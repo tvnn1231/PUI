@@ -151,6 +151,60 @@ nav a {
     height: 64px;
 }
 
+.cart-icon-container {
+    position: relative;
+    text-align: center;
+}
+
+.cart-number-centered {
+    position: absolute;
+    top: -6%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    font-size: 2.2em;
+    font-weight: 700;
+    background-color: transparent;
+}
+
+#cart-hover {
+    width: 227px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 12px;
+    position: absolute;
+    top: 17%;
+    right: 4%;
+}
+
+.cart-hover-btn {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    /* height: 67px; */
+    font-family: 'Josefin Slab', serif;
+    font-size: 1em;
+    border-radius: 12px;
+    padding: 5px;
+    padding-top: 8px;
+    background-color: #894E3F;
+    color: #ffffff;
+    border: 1px solid black;
+}
+
+#cart-hover-name {
+}
+
+#p-cart-hover-qty,
+#cart-hover-qty,
+#p-cart-hover-glaze,
+#cart-hover-glaze {
+    display: inline;
+}
+
+.hidden {
+    display: none;
+}
+
 .back {
     font-size: 1.2em;
 }
@@ -183,6 +237,8 @@ nav a {
     font-size: 1.5em;
 }
 
+/* Dropdowns */
+
 .dropdowns {
     margin: 58px 0;
 }
@@ -212,7 +268,7 @@ select {
     font-size: 1em;
 }
 
-.add-to-cart {
+#add-to-cart {
     width: 360px;
     font-family: 'Josefin Slab', serif;
     font-size: 2em;
@@ -222,6 +278,11 @@ select {
     background-color: #894E3F;
     color: #ffffff;
     border: 1px solid black;
+}
+
+#add-to-cart:hover {
+    cursor: pointer;
+    background-color: #A65C43;
 }
 
 /* Cart Page */
