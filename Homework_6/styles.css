@@ -168,12 +168,39 @@ nav a {
 
 #cart-hover {
     width: 227px;
-    height: 200px;
+    height: 150px;
     border: 1px solid black;
     border-radius: 12px;
     position: absolute;
     top: 17%;
     right: 4%;
+}
+
+.cart-hover-details {
+    display: flex;
+    justify-content: center;
+}
+
+.cart-hover-img {
+    width: 80px;
+    height: 60px;
+}
+
+.cart-hover-ps {
+    margin-left: 5%;
+}
+
+#cart-hover-name,
+#cart-hover-price,
+#p-cart-hover-qty,
+#cart-hover-qty,
+#p-cart-hover-glaze,
+#cart-hover-glaze {
+    margin: 0;
+}
+
+#cart-hover-name {
+    font-weight: 600;
 }
 
 .cart-hover-btn {
@@ -189,13 +216,6 @@ nav a {
     background-color: #894E3F;
     color: #ffffff;
     border: 1px solid black;
-}
-
-#p-cart-hover-qty,
-#cart-hover-qty,
-#p-cart-hover-glaze,
-#cart-hover-glaze {
-    display: inline;
 }
 
 .hidden {
