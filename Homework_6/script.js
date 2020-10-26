@@ -39,7 +39,6 @@ glazeDropdown.onchange = function() {
     if (selectedGlaze != "None") {
         price.innerHTML = "$2.75";
         cartHoverPrice = "$2.75";
-        console.log(selectedGlaze);
     } else {
         price.innerHTML = "$2.50";
         cartHoverPrice = "$2.50";
@@ -85,12 +84,8 @@ addToCart.onclick = function() {
 
     // if glaze is not "None," change price
     if (selectedGlaze != "None") {
-        price.innerHTML = "$2.75";
-        cartHoverPrice = "$2.75";
         pcartHoverPrice.innerHTML = "$" + (2.75*selectedQty).toFixed(2);
     } else {
-        price.innerHTML = "$2.50";
-        cartHoverPrice = "$2.50";
         pcartHoverPrice.innerHTML = "$" + (2.50*selectedQty).toFixed(2);
     }
 
