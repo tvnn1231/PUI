@@ -31,6 +31,36 @@ let pcartHoverGlaze = document.getElementById("cart-hover-glaze");
 // image in cart dropdown
 let cartImage = document.getElementById("cart-hover-img");
 
+glazeDropdown.onchange = function() {
+    // selected glaze
+    let selectedGlaze = glazeDropdown.value;
+
+    // if glaze is not "None," change price
+    if (selectedGlaze != "None") {
+        price.innerHTML = "$2.75";
+        cartHoverPrice = "$2.75";
+        console.log(selectedGlaze);
+    } else {
+        price.innerHTML = "$2.50";
+        cartHoverPrice = "$2.50";
+    }
+
+    // change image based on glaze
+    if (selectedGlaze === "None") {
+        image.src = "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg";
+        cartImage.src = "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg";
+    } else if (selectedGlaze === "Sugar-milk") {
+        image.src = "images/rob-sarmiento-RbqgLewxyXo-unsplash.jpg";
+        cartImage.src = "images/rob-sarmiento-RbqgLewxyXo-unsplash.jpg";
+    } else if (selectedGlaze === "Vanilla-milk") {
+        image.src = "images/sergio-arze-hQctjbWa8hc-unsplash.jpg";
+        cartImage.src = "images/sergio-arze-hQctjbWa8hc-unsplash.jpg";
+    } else if (selectedGlaze === "Double-chocolate") {
+        image.src = "images/brina-blum-P9WkD82hLUI-unsplash.jpg";
+        cartImage.src = "images/brina-blum-P9WkD82hLUI-unsplash.jpg";
+    }
+}
+
 addToCart.onclick = function() {
     // selected quantity
     let selectedQty = qtyDropdown.value;
@@ -78,5 +108,6 @@ addToCart.onclick = function() {
         image.src = "images/brina-blum-P9WkD82hLUI-unsplash.jpg";
         cartImage.src = "images/brina-blum-P9WkD82hLUI-unsplash.jpg";
     }
+
 }
 
