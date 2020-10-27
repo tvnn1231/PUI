@@ -1,5 +1,5 @@
 // Add to Cart button
-let addToCart = document.getElementById("add-to-cart");
+let addToCartBtn = document.getElementById("add-to-cart");
 
 // Number in cart
 let cartNumber = document.getElementById("cart-number");
@@ -16,58 +16,82 @@ let price = document.getElementById("detail-price")
 // Image
 let image = document.getElementById("detail-img");
 
+
 // Cart dropdown
 let cartHover = document.getElementById("cart-hover");
+let cartHoverDetails = document.getElementById("cart-hover-details");
 
-// Get name of product
-let cartHoverName = addToCart.getAttribute("name");
-// Get price of product
-let cartHoverPrice = addToCart.getAttribute("price");
-// p tags in cart dropdown
-let pcartHoverName = document.getElementById("cart-hover-name");
-let pcartHoverPrice = document.getElementById("cart-hover-price");
-let pcartHoverQty = document.getElementById("cart-hover-qty");
-let pcartHoverGlaze = document.getElementById("cart-hover-glaze");
-// image in cart dropdown
-let cartImage = document.getElementById("cart-hover-img");
 
+// update price and photo when choose glaze
 glazeDropdown.onchange = function() {
     // selected glaze
     let selectedGlaze = glazeDropdown.value;
-
+    
     // if glaze is not "None," change price
     if (selectedGlaze != "None") {
         price.innerHTML = "$2.75";
-        cartHoverPrice = "$2.75";
     } else {
         price.innerHTML = "$2.50";
-        cartHoverPrice = "$2.50";
     }
 
     // change image based on glaze
     if (selectedGlaze === "None") {
         image.src = "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg";
-        cartImage.src = "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg";
     } else if (selectedGlaze === "Sugar-milk") {
         image.src = "images/rob-sarmiento-RbqgLewxyXo-unsplash.jpg";
-        cartImage.src = "images/rob-sarmiento-RbqgLewxyXo-unsplash.jpg";
     } else if (selectedGlaze === "Vanilla-milk") {
         image.src = "images/sergio-arze-hQctjbWa8hc-unsplash.jpg";
-        cartImage.src = "images/sergio-arze-hQctjbWa8hc-unsplash.jpg";
     } else if (selectedGlaze === "Double-chocolate") {
         image.src = "images/brina-blum-P9WkD82hLUI-unsplash.jpg";
-        cartImage.src = "images/brina-blum-P9WkD82hLUI-unsplash.jpg";
     }
 }
 
-addToCart.onclick = function() {
+let itemsInCart = 0;
+
+addToCartBtn.onclick = function() {
+
     // selected quantity
-    let selectedQty = qtyDropdown.value;
+    let selectedQty = parseInt(qtyDropdown.value, 10);
     // selected glaze
     let selectedGlaze = glazeDropdown.value;
 
-    // update number in cart based on selected quantity
-    cartNumber.innerHTML = selectedQty;
+    // UPDATE NUMBER IN CART
+
+    itemsInCart = itemsInCart + selectedQty;
+    cartNumber.innerHTML = itemsInCart;
+
+    // UPDATE CART DROPDOWN DETAILS
+
+    // if glaze is not "None," change price
+    let totalPrice = "";
+    if (selectedGlaze != "None") {
+        totalPrice = "$" + (2.75*selectedQty).toFixed(2);
+    } else {
+        totalPrice = "$" + (2.50*selectedQty).toFixed(2);
+    }
+
+    // create new image and append to cart dropdown
+    let newImg = document.createElement("img");
+    newImg.className = "cart-hover-img";
+    if (selectedGlaze === "None") {
+        newImg.src = "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg";
+    } else if (selectedGlaze === "Sugar-milk") {
+        newImg.src = "images/rob-sarmiento-RbqgLewxyXo-unsplash.jpg";
+    } else if (selectedGlaze === "Vanilla-milk") {
+        newImg.src = "images/sergio-arze-hQctjbWa8hc-unsplash.jpg";
+    } else if (selectedGlaze === "Double-chocolate") {
+        newImg.src = "images/brina-blum-P9WkD82hLUI-unsplash.jpg";
+    }
+    cartHoverDetails.appendChild(newImg);
+
+    // create new ps and append to cart dropdown
+    let newPs = document.createElement("div");
+    newPs.className = "cart-hover-ps";
+    newPs.innerHTML =   "<p class='cart-hover-name'>Original</p>" + 
+                        "<p class='cart-hover-price'>" + totalPrice + "</p>" + 
+                        "<p class='p-cart-hover-qty'>Quantity: <span class='cart-hover-qty'>" + selectedQty + "</span></p>" + 
+                        "<p class='p-cart-hover-glaze'>Glaze: <span class='cart-hover-glaze'>" + selectedGlaze + "</span></p>"
+    cartHoverDetails.appendChild(newPs);
 
     // show cart dropdown
     cartHover.classList.remove("hidden");
@@ -76,33 +100,4 @@ addToCart.onclick = function() {
     setTimeout(function() {
         cartHover.classList.add("hidden");
     }, 3000)
-
-    // update info in cart dropdown
-    pcartHoverName.innerHTML = cartHoverName;
-    pcartHoverQty.innerHTML = selectedQty;
-    pcartHoverGlaze.innerHTML = selectedGlaze;
-
-    // if glaze is not "None," change price
-    if (selectedGlaze != "None") {
-        pcartHoverPrice.innerHTML = "$" + (2.75*selectedQty).toFixed(2);
-    } else {
-        pcartHoverPrice.innerHTML = "$" + (2.50*selectedQty).toFixed(2);
-    }
-
-    // change image based on glaze
-    if (selectedGlaze === "None") {
-        image.src = "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg";
-        cartImage.src = "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg";
-    } else if (selectedGlaze === "Sugar-milk") {
-        image.src = "images/rob-sarmiento-RbqgLewxyXo-unsplash.jpg";
-        cartImage.src = "images/rob-sarmiento-RbqgLewxyXo-unsplash.jpg";
-    } else if (selectedGlaze === "Vanilla-milk") {
-        image.src = "images/sergio-arze-hQctjbWa8hc-unsplash.jpg";
-        cartImage.src = "images/sergio-arze-hQctjbWa8hc-unsplash.jpg";
-    } else if (selectedGlaze === "Double-chocolate") {
-        image.src = "images/brina-blum-P9WkD82hLUI-unsplash.jpg";
-        cartImage.src = "images/brina-blum-P9WkD82hLUI-unsplash.jpg";
-    }
-
 }
-
