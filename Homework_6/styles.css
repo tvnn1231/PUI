@@ -167,7 +167,7 @@ nav a {
 }
 
 #cart-hover {
-    width: 250px;
+    width: 220px;
     overflow: auto;
     border: 1px solid black;
     border-radius: 12px;
@@ -178,19 +178,26 @@ nav a {
 
 .cart-hover-details {
     display: flex;
-    width: 250px;
+    width: 220px;           /* same as cart-hover */
     flex-wrap: wrap;
-    justify-content: center;
     padding-top: 5px;
 }
 
 .cart-hover-img {
-    width: 80px;
+    max-width: 80px;
     height: 60px;
+    margin: 0 5% 10px 5%;   /* to provide space between items */
+
+    /* to make images line up vertically */
+    flex-basis: 0;
 }
 
 .cart-hover-ps {
-    margin-left: 5%;
+    margin-bottom: 10px;    /* to provide space between items */
+
+    /* to make text line up vertically */
+    flex-basis: 0;
+    flex-grow: 1;
 }
 
 .cart-hover-name,
