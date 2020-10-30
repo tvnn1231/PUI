@@ -21,3 +21,13 @@ New Page:
   <ul>
     <li>Tracking Page</li>
   </ul>
+
+*The tracking page is accessible from the home page by clicking "My Orders" OR clicking “Shop” in the navigation bar, choosing a product, clicking the cart icon on the product detail page, and then clicking the Check Out button on the cart page.
+
+Functionality on (Original) product detail page:
+   <ul>
+    <li>Image changes based on glaze chosen</li>
+    <li>Price changes if glaze is “None”</li>
+    <li>Number in cart updates with new additions to cart</li>
+    <li>Dropdown on cart updates with information about new additions</li>
+  </ul>
