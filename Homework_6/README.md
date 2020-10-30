@@ -1,4 +1,4 @@
-# homework_5
+# homework_6
 
 Pages:
   <ul>
@@ -15,4 +15,9 @@ Pages:
     <li>Pumpkin Spice Product Detail Page</li>
     <li>Caramel Pecan Product Detail Page</li>
     <li>Cart Page</li>
+  </ul>
+  
+New Page:
+  <ul>
+    <li>Tracking Page</li>
   </ul>
