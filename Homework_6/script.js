@@ -46,6 +46,8 @@ glazeDropdown.onchange = function() {
     }
 }
 
+// update cart when add items
+
 let itemsInCart = 0;
 
 addToCartBtn.onclick = function() {
