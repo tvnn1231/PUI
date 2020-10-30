@@ -101,11 +101,3 @@ addToCartBtn.onclick = function() {
         cartHover.classList.add("hidden");
     }, 3000)
 }
-
-
-// To link Tracking page to Cart page via check out button
-let checkOutBtn = document.getElementById("check-out-btn");
-
-checkOutBtn.onclick = function() {
-    location.href = "tracking.html";
-}
