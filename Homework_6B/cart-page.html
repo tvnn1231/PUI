@@ -26,42 +26,17 @@
 
         <div class="cart-container"> <!-- Contains product info, total, and check out button -->
 
-            <div class="cart-items"> <!-- Contains product image, details, and dropdowns -->
-                <img src="images/rob-sarmiento-RbqgLewxyXo-unsplash-cart.jpg" alt="Original" class="cart-img">
-                <div class="cart-items-details">
-                    <p class="cart-details-name">Original</p>
-                    <p class="cart-details-price">$2.50</p>
-                    <div class="cart-dropdowns">
-                        <div class="cart-details-dropdown">
-                            <label for="cart-quantity">Quantity:</label>
-                            <select name="cart-quantity" id="cart-quantity">
-                                <option value="1">1</option>
-                                <option value="3">3</option>
-                                <option value="6">6</option>
-                                <option value="12">12</option>
-                            </select>
-                        </div> <!-- .cart-details-dropdown -->
-                        <div class="cart-details-dropdown">
-                            <label for="cart-glaze">Glaze:</label>
-                            <select name="cart-glaze" id="cart-glaze">
-                                <option value="None">None</option>
-                                <option value="Sugar-milk">Sugar-milk</option>
-                                <option value="Vanilla-milk">Vanilla-milk</option>
-                                <option value="Double Chocolate">Double Chocolate</option>
-                            </select>
-                        </div> <!-- .cart-details-dropdown -->
-                    </div> <!-- .cart-dropdowns -->
-                </div> <!-- .cart-items-details -->
-                <img class="cart-X" src="images/cart-X.svg" alt="X-icon">
-            </div> <!-- .cart-items -->
+            <div class="cart-items" id="cart-items"></div> <!-- Contains product image, details, and dropdowns -->
 
             <!-- Total and checkout button -->
-            <p class="cart-total">Total: $7.50</p>
+            <p class="cart-total">Total: $<span id="cart-total"></span></p>
             <div class="check-out-btn-div">
                 <button class="check-out-btn">Check Out</button>
             </div>
 
         </div>
+    
+    <script src="cart-page.js"></script>
 
     </body>
 
