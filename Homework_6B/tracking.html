@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Bun Bun Bake Shop</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@400;600;700&family=Sacramento&display=swap" rel="stylesheet">  
+    </head>
+
+    <body>
+        <header>
+            <a href="index.html"><img src="images/Bun_Bun.svg" alt="Bun Bun logo" class="logo"></a>
+            <h1>Order Tracking</h1>
+            <div class="empty"></div>
+        </header>
+
+        <div class="tracking-container"> <!-- container with all tracking information -->
+            <div class="top-tracking-container"> <!-- holds est. delivery and tracking no. -->
+                <p class="est-deliv">Estimated Delivery: October 24</p>
+                <p class="tracking-num">Tracking Number: #12345</p>
+            </div>
+            <div class="progress-bar-container"> <!-- holds progress bar groups -->
+                <div class="progress-group"> <!-- each group holds label and icon -->
+                    <p class="ordered-progress-label">Ordered</p>
+                    <div class="ordered-bar-icon-container">
+                        <img src="images/Cart.svg" alt="cart icon" class="progress-bar-icon">
+                    </div>
+                </div>
+                <span class="line"></span>
+                <div class="progress-group">
+                    <p class="progress-label">Baked</p>
+                    <div class="progress-bar-icon-container">
+                        <img src="images/oven.svg" alt="oven icon" class="progress-bar-icon">
+                    </div>
+                </div>
+                <span class="line"></span>
+                <div class="progress-group">
+                    <p class="progress-label">Shipping</p>
+                    <div class="progress-bar-icon-container">
+                        <img src="images/truck.svg" alt="truck icon" class="progress-bar-icon">
+                    </div>
+                </div>
+                <span class="line"></span>
+                <div class="progress-group">
+                    <p class="progress-label">Arrived</p>
+                    <div class="progress-bar-icon-container">
+                        <img src="images/house.svg" alt="home icon" class="progress-bar-icon">
+                    </div>
+                </div>
+            </div> <!-- .progress-bar -->
+            <div class="bottom-tracking-container">
+                <div class="your-order-container">
+                    <p class="bottom-tracking-heading">Your Order</p>
+                    <p class="bottom-tracking-content">1 Original, No Glaze</p>
+                    <p class="bottom-tracking-content">3 Caramel Pecan, Vanilla-Milk Glaze</p>
+                    <p><span class="bottom-tracking-label">Total: </span><span class="bottom-tracking-content">$11.50</span></p>
+                </div>
+                <div class="contact-store-container">
+                    <p class="bottom-tracking-heading">Contact Store</p>
+                    <p><span class="bottom-tracking-label">Phone: </span><span class="bottom-tracking-content">(555) 246-7655</span></p>
+                    <p><span class="bottom-tracking-label">Email: </span><span class="bottom-tracking-content">bunbunbakeshop@bunbuns.com</span></p>
+                    <p><span class="bottom-tracking-label">Address: </span><span class="bottom-tracking-content">123 Bun Bun Place<br>Pittsburgh, PA 12345</span></p>
+                </div>
+            </div> <!-- .bottom-tracking-container -->
+        </div> <!-- .tracking-container -->
+
+    </body>

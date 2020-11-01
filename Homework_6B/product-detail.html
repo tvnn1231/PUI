@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Bun Bun Bake Shop</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@400;600;700&family=Sacramento&display=swap" rel="stylesheet"> 
+    </head>
+    
+    <body id="product-detail-pg">
+
+        <header>
+            <a href="index.html"><img src="images/Bun_Bun.svg" alt="Bun Bun logo" class="logo"></a>
+            <h1>Cinnamon Rolls</h1>
+            <div class="detail-cart-container">
+                <div class="cart-icon-container">
+                    <a id="cart-anchor" href="cart-page.html"><img src="images/Cart.svg" alt="cart icon" class="cart-icon"></a>
+                    <p id="cart-number" class="cart-number-centered">0</p>
+                </div>
+                <div id="cart-hover" class="hidden">
+                    <div class="cart-hover-details" id="cart-hover-details"></div>
+                    <button class="cart-hover-btn">Check Out</button>
+                </div>
+            </div>
+        </header>
+
+        <nav>
+            <a href="product-browsing.html" class="active">Shop</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <p class="back"><a href="product-browsing.html">&lt; Back to Browse</a></p>
+        <div class="detail-container">
+            <img src="" alt="" class="detail-img" id="detail-img">
+            <div class="detail-original-container">
+                <h2 class="detail-name" id="detail-name"></h2>
+                <p class="detail-price" id="detail-price"></p>
+                <p class="detail-original-desc" id="detail-desc"></p>
+            
+                <div class="dropdowns"> <!-- Contains both quantity and glaze dropdowns -->
+                    <div class="detail-dropdown">
+                        <label for="quantity">Quantity:</label>
+                        <select name="quantity" id="quantity">
+                            <option value="1">1</option>
+                            <option value="3">3</option>
+                            <option value="6">6</option>
+                            <option value="12">12</option>
+                        </select>
+                    </div>
+                    
+                    <div class="detail-dropdown">
+                        <label for="glaze">Glaze:</label>
+                        <select name="glaze" id="glaze">
+                            <option value="Sugar-milk">Sugar-Milk</option>
+                            <option value="Vanilla-milk">Vanilla-Milk</option>
+                            <option value="Double-chocolate">Double-Chocolate</option>
+                            <option value="None">None</option>
+                        </select>
+                    </div>
+                </div> <!-- .dropdowns -->
+
+                <button id="add-to-cart">Add to Cart</button>
+            
+            </div> <!-- .detail-original-container -->
+        </div> <!-- .detail-container -->
+
+    <script src="script.js"></script>
+
+    </body>
+
+</html>
