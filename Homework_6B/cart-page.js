@@ -1,76 +1,70 @@
-// product detail constructor function
+// let orders = [{ 
+//     // change product to productId - just need id, not whole object
+//     productId: "originalId",
+//     quantity: 3,
+//     glaze: "Vanilla-milk"
+// },
+// {
+//     productId: "originalId",
+//     quantity: 6,
+//     glaze: "None"
+// },
+// {
+//     productId: "blackberryId",
+//     quantity: 3,
+//     glaze: "Sugar-milk"
+// },
+// {
+//     productId: "walnutId",
+//     quantity: 6,
+//     glaze: "Double-chocolate"
+// }]
 
-function ProductDetail(id, imageSrc, alt, name, price, description) {
-    this.id = id;
-    this.imageSrc = imageSrc;
-    this.alt = alt;
-    this.name = name;
-    this.price = price;
-    this.description = description;
+// put items in local storage into orders array
+let orders = [];
+
+if (localStorage.getItem("Orders") !== null) {
+    orders = JSON.parse(localStorage.getItem("Orders"));
 }
-
-// create each product
-let Original = new ProductDetail("originalId", "images/rob-sarmiento-RbqgLewxyXo-unsplash.jpg", "Original cinnamon roll", "Original", 2.75, "Our classic cinnamon roll. Gooey, buttery, cinnamon-y. The size of a small child’s head.");
-let Blackberry = new ProductDetail("blackberryId", "images/joseph-gonzalez-AQSga3jii8A-unsplash.jpg", "Blackberry cinnamon roll", "Blackberry", 2.75, "Our cinnamon roll with blackberries, freshly picked from bushes down the road.");
-let Walnut = new ProductDetail("walnutId", "images/1_fallon-michael-H6OBZaVveCA-unsplash.jpg", "Walnut cinnamon roll", "Walnut", 2.75, "A gooey cinnamon roll with some added crunch!");
-let GF = new ProductDetail("gfId", "images/1_fallon-michael-H6OBZaVveCA-unsplash.jpg", "Gluten free original cinnamon roll", "Original (Gluten Free)", 2.75, "Exactly the same as our original cinnamon roll, just gluten free!");
-let Pumpkin = new ProductDetail("pumpkinId", "images/cinnamon-roll-4719023_1920.jpg", "Pumpkin cinnamon roll", "Pumpkin", 2.75, "The perfect fall treat! A warm cinnamon roll flavored with pumpkin and warm spices.");
-let Caramel = new ProductDetail("caramelId", "images/karolina-wv-b22kPrO6Zsk-unsplash.jpg", "Caramel Pecan cinnamon roll", "Caramel Pecan", 2.75, "Silky caramel + crunchy pecan = our most decadent cinnamon roll.");
-
-
-let Orders = [{
-    product: Original,
-    quantity: 3,
-    glaze: "Vanilla-milk"
-},
-{
-    product: Original,
-    quantity: 6,
-    glaze: "None"
-},
-{
-    product: Blackberry,
-    quantity: 3,
-    glaze: "Sugar-milk"
-}]
 
 let cartItems = document.getElementById("cart-items");
 let total = 0;
 
-// for loop to go through Orders array
+// for loop to go through orders array and populate cart page
 var i;
-for (i = 0; i < Orders.length; i++) {
+for (i = 0; i < orders.length; i++) {
+    let prod = JSON.parse(localStorage.getItem(orders[i].productId));
     
     // set price based on glaze
-    if (Orders[i].glaze != "None") {
-        Orders[i].product.price = 2.75;
+    if (orders[i].glaze != "None") {
+        prod.price = 2.75;
     } else {
-        Orders[i].product.price = 2.50;
+        prod.price = 2.50;
     }
 
     // set image based on glaze
-    if (Orders[i].glaze === "None") {
-        Orders[i].product.imageSrc = "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg";
-    } else if (Orders[i].glaze === "Vanilla-milk") {
-        Orders[i].product.imageSrc = "images/sergio-arze-hQctjbWa8hc-unsplash.jpg";
-    } else if (Orders[i].glaze === "Double-chocolate") {
-        Orders[i].product.imageSrc = "images/brina-blum-P9WkD82hLUI-unsplash.jpg";
+    if (orders[i].glaze === "None") {
+        prod.imageSrc = "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg";
+    } else if (orders[i].glaze === "Vanilla-milk") {
+        prod.imageSrc = "images/sergio-arze-hQctjbWa8hc-unsplash.jpg";
+    } else if (orders[i].glaze === "Double-chocolate") {
+        prod.imageSrc = "images/brina-blum-P9WkD82hLUI-unsplash.jpg";
     }
 
     // create new image and append to container
     let newCartImg = document.createElement("img");
     newCartImg.className = "cart-img";
-    newCartImg.src = Orders[i].product.imageSrc;
+    newCartImg.src = prod.imageSrc;
     cartItems.appendChild(newCartImg);
 
     // create new details and append to container
     let newDetails = document.createElement("div");
     newDetails.className = "cart-items-details";
     newDetails.innerHTML = 
-        `<p class="cart-details-name">Original</p>
-        <p class="cart-details-price">$` + (Orders[i].product.price).toFixed(2) + `</p>
-        <p class="cart-details-qty">Quantity: ` + Orders[i].quantity + `</p>
-        <p class="cart-details-glaze">Glaze: ` + Orders[i].glaze + `</p>`
+        `<p class="cart-details-name">` + prod.name + `</p>
+        <p class="cart-details-price">$` + (prod.price).toFixed(2) + `</p>
+        <p class="cart-details-qty">Quantity: ` + orders[i].quantity + `</p>
+        <p class="cart-details-glaze">Glaze: ` + orders[i].glaze + `</p>`
     cartItems.appendChild(newDetails);
 
     // create new X icon and append to container
@@ -80,10 +74,10 @@ for (i = 0; i < Orders.length; i++) {
     cartItems.appendChild(newX);  
 
     // calculate price
-    let productPrice = Orders[i].product.price;
+    let productPrice = prod.price;
     productPrice.toFixed(2);            // to include 2 decimal places for cents
     parseInt(productPrice);             // to make productPrice a number again
-    let productPriceTotal = productPrice * Orders[i].quantity;
+    let productPriceTotal = productPrice * orders[i].quantity;
     total += productPriceTotal;
 }
 
