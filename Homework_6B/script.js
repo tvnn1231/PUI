@@ -67,8 +67,16 @@ let cartHover = document.getElementById("cart-hover");
 let cartHoverDetails = document.getElementById("cart-hover-details");
 
 // initial number of items in cart
+let orders = [];
+if (localStorage.getItem("Orders") !== null) {
+    orders = JSON.parse(localStorage.getItem("Orders"));
+}
 let itemsInCart = 0;
-
+cartNumber.innerHTML = itemsInCart;
+for (i = 0; i < orders.length; i++) {
+    itemsInCart += orders[i].quantity;
+    cartNumber.innerHTML = itemsInCart;
+}
 
 // update price and photo when choose glaze
 glazeDropdown.onchange = function() {
@@ -120,7 +128,6 @@ addToCartBtn.onclick = function() {
     let selectedGlaze = glazeDropdown.value;
 
     // UPDATE NUMBER IN CART
-
     itemsInCart = itemsInCart + selectedQty;
     cartNumber.innerHTML = itemsInCart;
 
