@@ -47,7 +47,7 @@ function populateCart() {
         // create new image and append to container
         let newCartImg = document.createElement("img");
         newCartImg.className = "cart-img";
-        newCartImg.src = prod.imageSrcSugar;
+        newCartImg.src = imgSrc;
         cartItems.appendChild(newCartImg);
 
         // create new details and append to container
