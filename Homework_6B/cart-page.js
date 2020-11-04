@@ -25,18 +25,29 @@ function populateCart() {
         }
 
         // set image based on glaze
-        if (orders[i].glaze === "None") {
-            prod.imageSrc = "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg";
+        let imgSrc
+        if (orders[i].glaze === "Sugar-milk") {
+            imgSrc = prod.imageSrcSugar;
         } else if (orders[i].glaze === "Vanilla-milk") {
-            prod.imageSrc = "images/sergio-arze-hQctjbWa8hc-unsplash.jpg";
+            imgSrc = prod.imageSrcVanilla;
         } else if (orders[i].glaze === "Double-chocolate") {
-            prod.imageSrc = "images/brina-blum-P9WkD82hLUI-unsplash.jpg";
+            imgSrc = prod.imageSrcChocolate;
+        } else {
+            imgSrc = prod.imageSrcNone;
         }
+
+        // if (orders[i].glaze === "None") {
+        //     prod.imageSrc = "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg";
+        // } else if (orders[i].glaze === "Vanilla-milk") {
+        //     prod.imageSrc = "images/sergio-arze-hQctjbWa8hc-unsplash.jpg";
+        // } else if (orders[i].glaze === "Double-chocolate") {
+        //     prod.imageSrc = "images/brina-blum-P9WkD82hLUI-unsplash.jpg";
+        // }
 
         // create new image and append to container
         let newCartImg = document.createElement("img");
         newCartImg.className = "cart-img";
-        newCartImg.src = prod.imageSrc;
+        newCartImg.src = prod.imageSrcSugar;
         cartItems.appendChild(newCartImg);
 
         // create new details and append to container

@@ -1,8 +1,11 @@
 // product detail constructor function
 
-function productDetail(id, imageSrc, alt, name, price, description) {
+function productDetail(id, imageSrcSugar, imageSrcVanilla, imageSrcChocolate, imageSrcNone, alt, name, price, description) {
     this.id = id;
-    this.imageSrc = imageSrc;
+    this.imageSrcSugar = imageSrcSugar;
+    this.imageSrcVanilla = imageSrcVanilla;
+    this.imageSrcChocolate = imageSrcChocolate;
+    this.imageSrcNone = imageSrcNone;
     this.alt = alt;
     this.name = name;
     this.price = price;
@@ -10,12 +13,71 @@ function productDetail(id, imageSrc, alt, name, price, description) {
 }
 
 // create each product
-let Original = new productDetail("originalId", "images/rob-sarmiento-RbqgLewxyXo-unsplash.jpg", "Original cinnamon roll", "Original", 2.75, "Our classic cinnamon roll. Gooey, buttery, cinnamon-y. The size of a small child’s head.");
-let Blackberry = new productDetail("blackberryId", "images/joseph-gonzalez-AQSga3jii8A-unsplash.jpg", "Blackberry cinnamon roll", "Blackberry", 2.75, "Our cinnamon roll with blackberries, freshly picked from bushes down the road.");
-let Walnut = new productDetail("walnutId", "images/1_fallon-michael-H6OBZaVveCA-unsplash.jpg", "Walnut cinnamon roll", "Walnut", 2.75, "A gooey cinnamon roll with some added crunch!");
-let GF = new productDetail("gfId", "images/1_fallon-michael-H6OBZaVveCA-unsplash.jpg", "Gluten free original cinnamon roll", "Original (Gluten Free)", 2.75, "Exactly the same as our original cinnamon roll, just gluten free!");
-let Pumpkin = new productDetail("pumpkinId", "images/cinnamon-roll-4719023_1920.jpg", "Pumpkin cinnamon roll", "Pumpkin", 2.75, "The perfect fall treat! A warm cinnamon roll flavored with pumpkin and warm spices.");
-let Caramel = new productDetail("caramelId", "images/karolina-wv-b22kPrO6Zsk-unsplash.jpg", "Caramel Pecan cinnamon roll", "Caramel Pecan", 2.75, "Silky caramel + crunchy pecan = our most decadent cinnamon roll.");
+let Original = new productDetail(
+    "originalId", 
+    "images/rob-sarmiento-RbqgLewxyXo-unsplash.jpg", 
+    "images/sergio-arze-hQctjbWa8hc-unsplash.jpg",
+    "images/brina-blum-P9WkD82hLUI-unsplash.jpg",
+    "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg",
+    "Original cinnamon roll", 
+    "Original", 
+    2.75, 
+    "Our classic cinnamon roll. Gooey, buttery, cinnamon-y. The size of a small child’s head."
+);
+let Blackberry = new productDetail(
+    "blackberryId", 
+    "images/joseph-gonzalez-AQSga3jii8A-unsplash.jpg", 
+    "images/sergio-arze-hQctjbWa8hc-unsplash.jpg",
+    "images/brina-blum-P9WkD82hLUI-unsplash.jpg",
+    "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg",
+    "Blackberry cinnamon roll", 
+    "Blackberry", 
+    2.75, 
+    "Our cinnamon roll with blackberries, freshly picked from bushes down the road."
+);
+let Walnut = new productDetail(
+    "walnutId", 
+    "images/1_fallon-michael-H6OBZaVveCA-unsplash.jpg", 
+    "images/sergio-arze-hQctjbWa8hc-unsplash.jpg",
+    "images/brina-blum-P9WkD82hLUI-unsplash.jpg",
+    "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg",
+    "Walnut cinnamon roll", 
+    "Walnut", 
+    2.75, 
+    "A gooey cinnamon roll with some added crunch!"
+    );
+let GF = new productDetail(
+    "gfId", 
+    "images/1_fallon-michael-H6OBZaVveCA-unsplash.jpg", 
+    "images/sergio-arze-hQctjbWa8hc-unsplash.jpg",
+    "images/brina-blum-P9WkD82hLUI-unsplash.jpg",
+    "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg",
+    "Gluten free original cinnamon roll", 
+    "Original (Gluten Free)", 
+    2.75, 
+    "Exactly the same as our original cinnamon roll, just gluten free!");
+let Pumpkin = new productDetail(
+    "pumpkinId", 
+    "images/cinnamon-roll-4719023_1920.jpg", 
+    "images/sergio-arze-hQctjbWa8hc-unsplash.jpg",
+    "images/brina-blum-P9WkD82hLUI-unsplash.jpg",
+    "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg",
+    "Pumpkin cinnamon roll", 
+    "Pumpkin", 
+    2.75, 
+    "The perfect fall treat! A warm cinnamon roll flavored with pumpkin and warm spices."
+);
+let Caramel = new productDetail(
+    "caramelId", 
+    "images/karolina-wv-b22kPrO6Zsk-unsplash.jpg", 
+    "images/sergio-arze-hQctjbWa8hc-unsplash.jpg",
+    "images/brina-blum-P9WkD82hLUI-unsplash.jpg",
+    "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg",
+    "Caramel Pecan cinnamon roll", 
+    "Caramel Pecan", 
+    2.75, 
+    "Silky caramel + crunchy pecan = our most decadent cinnamon roll."
+);
 
 localStorage.setItem(Original.id, JSON.stringify(Original));
 localStorage.setItem(Blackberry.id, JSON.stringify(Blackberry));
@@ -32,7 +94,7 @@ let productId = linkparts[1];
 let product = JSON.parse(localStorage.getItem(productId));
 
 function loadProduct() {
-    document.getElementById("detail-img").src = product.imageSrc;
+    document.getElementById("detail-img").src = product.imageSrcSugar;
     document.getElementById("detail-img").alt = product.alt;
     document.getElementById("detail-name").innerHTML = product.name;
     document.getElementById("detail-price").innerHTML = "$" + (product.price).toFixed(2);
@@ -92,13 +154,13 @@ glazeDropdown.onchange = function() {
 
     // change image based on glaze
     if (selectedGlaze === "Sugar-milk") {
-        image.src = product.imageSrc;
+        image.src = product.imageSrcSugar;
     } else if (selectedGlaze === "Vanilla-milk") {
-        image.src = "images/sergio-arze-hQctjbWa8hc-unsplash.jpg";
+        image.src = product.imageSrcVanilla;
     } else if (selectedGlaze === "Double-chocolate") {
-        image.src = "images/brina-blum-P9WkD82hLUI-unsplash.jpg";
+        image.src = product.imageSrcChocolate;
     } else if (selectedGlaze === "None") {
-        image.src = "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg";
+        image.src = product.imageSrcNone;
     } 
 }
 
@@ -145,13 +207,13 @@ addToCartBtn.onclick = function() {
     let newImg = document.createElement("img");
     newImg.className = "cart-hover-img";
     if (selectedGlaze === "None") {
-        newImg.src = "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg";
+        newImg.src = product.imageSrcNone;
     } else if (selectedGlaze === "Vanilla-milk") {
-        newImg.src = "images/sergio-arze-hQctjbWa8hc-unsplash.jpg";
+        newImg.src = product.imageSrcVanilla;
     } else if (selectedGlaze === "Double-chocolate") {
-        newImg.src = "images/brina-blum-P9WkD82hLUI-unsplash.jpg";
+        newImg.src = product.imageSrcChocolate;
     } else if (selectedGlaze === "Sugar-milk") {
-        newImg.src = product.imageSrc;
+        newImg.src = product.imageSrcSugar;
     }
     cartHoverDetails.appendChild(newImg);
 
