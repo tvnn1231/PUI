@@ -10,12 +10,12 @@ function productDetail(id, imageSrc, alt, name, price, description) {
 }
 
 // create each product
-let Original = new productDetail("originalId", "images/rob-sarmiento-RbqgLewxyXo-unsplash.jpg", "Original cinnamon roll", "Original", "$2.75", "Our classic cinnamon roll. Gooey, buttery, cinnamon-y. The size of a small child’s head.");
-let Blackberry = new productDetail("blackberryId", "images/joseph-gonzalez-AQSga3jii8A-unsplash.jpg", "Blackberry cinnamon roll", "Blackberry", "$2.75", "Our cinnamon roll with blackberries, freshly picked from bushes down the road.");
-let Walnut = new productDetail("walnutId", "images/1_fallon-michael-H6OBZaVveCA-unsplash.jpg", "Walnut cinnamon roll", "Walnut", "$2.75", "A gooey cinnamon roll with some added crunch!");
-let GF = new productDetail("gfId", "images/1_fallon-michael-H6OBZaVveCA-unsplash.jpg", "Gluten free original cinnamon roll", "Original (Gluten Free)", "$2.75", "Exactly the same as our original cinnamon roll, just gluten free!");
-let Pumpkin = new productDetail("pumpkinId", "images/cinnamon-roll-4719023_1920.jpg", "Pumpkin cinnamon roll", "Pumpkin", "$2.75", "The perfect fall treat! A warm cinnamon roll flavored with pumpkin and warm spices.");
-let Caramel = new productDetail("caramelId", "images/karolina-wv-b22kPrO6Zsk-unsplash.jpg", "Caramel Pecan cinnamon roll", "Caramel Pecan", "$2.75", "Silky caramel + crunchy pecan = our most decadent cinnamon roll.");
+let Original = new productDetail("originalId", "images/rob-sarmiento-RbqgLewxyXo-unsplash.jpg", "Original cinnamon roll", "Original", 2.75, "Our classic cinnamon roll. Gooey, buttery, cinnamon-y. The size of a small child’s head.");
+let Blackberry = new productDetail("blackberryId", "images/joseph-gonzalez-AQSga3jii8A-unsplash.jpg", "Blackberry cinnamon roll", "Blackberry", 2.75, "Our cinnamon roll with blackberries, freshly picked from bushes down the road.");
+let Walnut = new productDetail("walnutId", "images/1_fallon-michael-H6OBZaVveCA-unsplash.jpg", "Walnut cinnamon roll", "Walnut", 2.75, "A gooey cinnamon roll with some added crunch!");
+let GF = new productDetail("gfId", "images/1_fallon-michael-H6OBZaVveCA-unsplash.jpg", "Gluten free original cinnamon roll", "Original (Gluten Free)", 2.75, "Exactly the same as our original cinnamon roll, just gluten free!");
+let Pumpkin = new productDetail("pumpkinId", "images/cinnamon-roll-4719023_1920.jpg", "Pumpkin cinnamon roll", "Pumpkin", 2.75, "The perfect fall treat! A warm cinnamon roll flavored with pumpkin and warm spices.");
+let Caramel = new productDetail("caramelId", "images/karolina-wv-b22kPrO6Zsk-unsplash.jpg", "Caramel Pecan cinnamon roll", "Caramel Pecan", 2.75, "Silky caramel + crunchy pecan = our most decadent cinnamon roll.");
 
 localStorage.setItem(Original.id, JSON.stringify(Original));
 localStorage.setItem(Blackberry.id, JSON.stringify(Blackberry));
@@ -35,7 +35,7 @@ function loadProduct() {
     document.getElementById("detail-img").src = product.imageSrc;
     document.getElementById("detail-img").alt = product.alt;
     document.getElementById("detail-name").innerHTML = product.name;
-    document.getElementById("detail-price").innerHTML = product.price;
+    document.getElementById("detail-price").innerHTML = "$" + (product.price).toFixed(2);
     document.getElementById("detail-desc").innerHTML = product.description
 }
 

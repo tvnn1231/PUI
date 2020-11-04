@@ -19,10 +19,9 @@ function populateCart() {
         let prod = JSON.parse(localStorage.getItem(orders[i].productId));
         
         // set price based on glaze
-        if (orders[i].glaze != "None") {
-            prod.price = 2.75;
-        } else {
-            prod.price = 2.50;
+        let price = prod.price;
+        if (orders[i].glaze === "None") {
+            price = price - 0.25;
         }
 
         // set image based on glaze
@@ -45,10 +44,12 @@ function populateCart() {
         newDetails.className = "cart-items-details";
         newDetails.innerHTML = 
             `<p class="cart-details-name">` + prod.name + `</p>
-            <p class="cart-details-price">$` + (prod.price).toFixed(2) + `</p>
+            <p class="cart-details-price"> $` + price.toFixed(2) + `</p>      
             <p class="cart-details-qty">Quantity: ` + orders[i].quantity + `</p>
             <p class="cart-details-glaze">Glaze: ` + orders[i].glaze + `</p>`
         cartItems.appendChild(newDetails);
+
+        //(prod.price).toFixed(2)
 
         // create new X icon and append to container
         let newX = document.createElement("img");
@@ -59,7 +60,7 @@ function populateCart() {
         newX.setAttribute("onclick", "removeFromCart(" + i + ")");
 
         // calculate price
-        let productPrice = prod.price;
+        let productPrice = price;
         productPrice.toFixed(2);            // to include 2 decimal places for cents
         parseInt(productPrice);             // to make productPrice a number again
         let productPriceTotal = productPrice * orders[i].quantity;
