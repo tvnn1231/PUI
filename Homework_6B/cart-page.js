@@ -36,14 +36,6 @@ function populateCart() {
             imgSrc = prod.imageSrcNone;
         }
 
-        // if (orders[i].glaze === "None") {
-        //     prod.imageSrc = "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg";
-        // } else if (orders[i].glaze === "Vanilla-milk") {
-        //     prod.imageSrc = "images/sergio-arze-hQctjbWa8hc-unsplash.jpg";
-        // } else if (orders[i].glaze === "Double-chocolate") {
-        //     prod.imageSrc = "images/brina-blum-P9WkD82hLUI-unsplash.jpg";
-        // }
-
         // create new image and append to container
         let newCartImg = document.createElement("img");
         newCartImg.className = "cart-img";

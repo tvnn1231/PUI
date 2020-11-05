@@ -128,17 +128,24 @@ let image = document.getElementById("detail-img");
 let cartHover = document.getElementById("cart-hover");
 let cartHoverDetails = document.getElementById("cart-hover-details");
 
-// initial number of items in cart
-let orders = [];
-if (localStorage.getItem("Orders") !== null) {
-    orders = JSON.parse(localStorage.getItem("Orders"));
-}
-let itemsInCart = 0;
-cartNumber.innerHTML = itemsInCart;
-for (i = 0; i < orders.length; i++) {
-    itemsInCart += orders[i].quantity;
+// Number in cart on product browsing
+let cartNumberBrowsing = document.getElementById("cart-number-browsing");
+
+// display number of items in cart
+displayNumberInCart();
+
+function displayNumberInCart() {
+    let orders = [];
+    let itemsInCart = 0;
+    if (localStorage.getItem("Orders") !== null) {
+        orders = JSON.parse(localStorage.getItem("Orders"));
+        for (i = 0; i < orders.length; i++) {
+            itemsInCart += orders[i].quantity;
+        }
+    }
     cartNumber.innerHTML = itemsInCart;
 }
+
 
 // update price and photo when choose glaze
 glazeDropdown.onchange = function() {
@@ -181,59 +188,73 @@ function addToCartStorage(prodId, orderQuantity, orderGlaze) {
     localStorage.setItem("Orders", JSON.stringify(orders));
 }
 
+// function to populate cart dropdown
+function populateCartDropdown() {
+    let orders = [];
+
+    if (localStorage.getItem("Orders") !== null) {
+        orders = JSON.parse(localStorage.getItem("Orders"));
+        for (i = 0; i < orders.length; i++) {
+            let prod = JSON.parse(localStorage.getItem(orders[i].productId));
+            let totalPrice = "";
+            if (orders[i].glaze != "None") {
+                totalPrice = "$" + (2.75*orders[i].quantity).toFixed(2);
+            } else {
+                totalPrice = "$" + (2.50*orders[i].quantity).toFixed(2);
+            }
+        
+            // create new image and append to cart dropdown
+            let newImg = document.createElement("img");
+            newImg.className = "cart-hover-img";
+            if (orders[i].glaze === "None") {
+                newImg.src = prod.imageSrcNone;
+            } else if (orders[i].glaze === "Vanilla-milk") {
+                newImg.src = prod.imageSrcVanilla;
+            } else if (orders[i].glaze === "Double-chocolate") {
+                newImg.src = prod.imageSrcChocolate;
+            } else if (orders[i].glaze === "Sugar-milk") {
+                newImg.src = prod.imageSrcSugar;
+            }
+            cartHoverDetails.appendChild(newImg);
+        
+            // create new ps and append to cart dropdown
+            let newPs = document.createElement("div");
+            newPs.className = "cart-hover-ps";
+            newPs.innerHTML =   `<p class="cart-hover-name">` + prod.name + `</p>` + 
+                                `<p class="cart-hover-price">` + totalPrice + `</p>` + 
+                                `<p class="p-cart-hover-qty">Quantity: <span class="cart-hover-qty">` + orders[i].quantity + `</span></p>` + 
+                                `<p class="p-cart-hover-glaze">Glaze: <span class="cart-hover-glaze">` + orders[i].glaze + `</span></p>`
+            cartHoverDetails.appendChild(newPs);                
+        }
+    }
+
+    // show cart dropdown
+    cartHover.classList.remove("hidden");
+
+    // hide cart dropdown after 3 seconds - leave at end of function outside of for loop
+    setTimeout(function() {
+        cartHover.classList.add("hidden");
+    }, 3000)
+}
+
 // function when click on Add to Cart button
-addToCartBtn.onclick = function() {
+addToCartBtn.onclick = function() { 
 
     // selected quantity
     let selectedQty = parseInt(qtyDropdown.value, 10);
     // selected glaze
     let selectedGlaze = glazeDropdown.value;
 
-    // UPDATE NUMBER IN CART
-    itemsInCart = itemsInCart + selectedQty;
-    cartNumber.innerHTML = itemsInCart;
-
-    // UPDATE CART DROPDOWN DETAILS
-
-    // if glaze is not "None," change price
-    let totalPrice = "";
-    if (selectedGlaze != "None") {
-        totalPrice = "$" + (2.75*selectedQty).toFixed(2);
-    } else {
-        totalPrice = "$" + (2.50*selectedQty).toFixed(2);
-    }
-
-    // create new image and append to cart dropdown
-    let newImg = document.createElement("img");
-    newImg.className = "cart-hover-img";
-    if (selectedGlaze === "None") {
-        newImg.src = product.imageSrcNone;
-    } else if (selectedGlaze === "Vanilla-milk") {
-        newImg.src = product.imageSrcVanilla;
-    } else if (selectedGlaze === "Double-chocolate") {
-        newImg.src = product.imageSrcChocolate;
-    } else if (selectedGlaze === "Sugar-milk") {
-        newImg.src = product.imageSrcSugar;
-    }
-    cartHoverDetails.appendChild(newImg);
-
-    // create new ps and append to cart dropdown
-    let newPs = document.createElement("div");
-    newPs.className = "cart-hover-ps";
-    newPs.innerHTML =   `<p class="cart-hover-name">` + product.name + `</p>` + 
-                        `<p class="cart-hover-price">` + totalPrice + `</p>` + 
-                        `<p class="p-cart-hover-qty">Quantity: <span class="cart-hover-qty">` + selectedQty + `</span></p>` + 
-                        `<p class="p-cart-hover-glaze">Glaze: <span class="cart-hover-glaze">` + selectedGlaze + `</span></p>`
-    cartHoverDetails.appendChild(newPs);
-
-    // show cart dropdown
-    cartHover.classList.remove("hidden");
-
-    // hide cart dropdown after 3 seconds
-    setTimeout(function() {
-        cartHover.classList.add("hidden");
-    }, 3000)
-
     // call addToCartStorage function to add item to orders array in local storage
     addToCartStorage(productId, selectedQty, selectedGlaze);
+
+    // UPDATE NUMBER IN CART
+    displayNumberInCart();
+
+    // CLEAR OUT CART DROPDOWN
+    cartHoverDetails.innerHTML = "";
+
+    // UPDATE CART DROPDOWN DETAILS
+    populateCartDropdown();
+
 }
