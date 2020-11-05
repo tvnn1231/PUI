@@ -125,11 +125,9 @@ let price = document.getElementById("detail-price")
 let image = document.getElementById("detail-img");
 
 // Cart dropdown
+let detailCartContainer = document.getElementById("detail-cart-container");
 let cartHover = document.getElementById("cart-hover");
 let cartHoverDetails = document.getElementById("cart-hover-details");
-
-// Number in cart on product browsing
-let cartNumberBrowsing = document.getElementById("cart-number-browsing");
 
 // display number of items in cart
 displayNumberInCart();
@@ -145,7 +143,6 @@ function displayNumberInCart() {
     }
     cartNumber.innerHTML = itemsInCart;
 }
-
 
 // update price and photo when choose glaze
 glazeDropdown.onchange = function() {
@@ -186,6 +183,17 @@ function addToCartStorage(prodId, orderQuantity, orderGlaze) {
     })
 
     localStorage.setItem("Orders", JSON.stringify(orders));
+}
+
+// function to show cart dropdown for 3 seconds
+function showCartDropdown() {
+    // show cart dropdown
+    cartHover.classList.remove("hidden");
+
+    // hide cart dropdown after 3 seconds - leave at end of function outside of for loop
+    setTimeout(function() {
+        cartHover.classList.add("hidden");
+    }, 3000)
 }
 
 // function to populate cart dropdown
@@ -257,4 +265,15 @@ addToCartBtn.onclick = function() {
     // UPDATE CART DROPDOWN DETAILS
     populateCartDropdown();
 
+}
+
+// DOESN'T WORK - show dropdown when hover over cart icon
+detailCartContainer.onmouseenter = function() {
+    cartHover.classList.remove("hidden");
+    console.log('hi')
+}
+
+detailCartContainer.onmouseleave = function() {
+    cartHover.classList.add("hidden");
+    console.log('bye')
 }

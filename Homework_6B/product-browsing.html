@@ -12,9 +12,17 @@
         <header>
             <a href="index.html"><img src="images/Bun_Bun.svg" alt="Bun Bun logo" class="logo"></a>
             <h1>Cinnamon Rolls</h1>
-            <div class="cart-icon-container-browsing">
-                <a id="cart-anchor-browsing" href="cart-page.html"><img src="images/Cart.svg" alt="cart icon" class="cart-icon"></a>
-                <p id="cart-number-browsing" class="cart-number-centered"></p>
+            <div class="browsing-cart-container" id="browsing-cart-container">
+                <div class="cart-icon-container">
+                    <a id="cart-anchor-browsing" href="cart-page.html"><img src="images/Cart.svg" alt="cart icon" class="cart-icon"></a>
+                    <p id="cart-number-browsing" class="cart-number-centered"></p>
+                </div>
+                <div id="cart-hover" class="hidden">
+                    <div class="cart-hover-details" id="cart-hover-details"></div>
+                    <form action="cart-page.html">
+                        <button class="cart-hover-btn">Check Out</button>
+                    </form>
+                </div>
             </div>
         </header>
 
@@ -71,6 +79,6 @@
             </a>
         </div> <!-- .browsing-container -->
 
-        <script src="script.js"></script>
+        <script src="product-browsing.js"></script>
     
     </body>
