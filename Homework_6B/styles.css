@@ -226,6 +226,10 @@ nav a {
     border: 1px solid black;
 }
 
+.cart-hover-btn:hover {
+    cursor: pointer;
+}
+
 .hidden {
     display: none;
 }
@@ -414,6 +418,10 @@ select {
     background-color: #894E3F;
     color: #ffffff;
     border: 1px solid black;
+}
+
+.check-out-btn:hover {
+    cursor: pointer;
 }
 
 /* Tracking Page */

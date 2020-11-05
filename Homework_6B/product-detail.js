@@ -101,8 +101,10 @@ function loadProduct() {
     document.getElementById("detail-desc").innerHTML = product.description
 }
 
-document.getElementById("product-detail-pg").onload = loadProduct();
-
+document.getElementById("product-detail-pg").onload = function() {
+    loadProduct();
+    populateCartDropdown();
+}
 
 // lets on product detail page
 
@@ -235,7 +237,10 @@ function populateCartDropdown() {
             cartHoverDetails.appendChild(newPs);                
         }
     }
+}
 
+// function to show cart dropdown for 3 seconds
+function showCartDropdownForThreeSeconds() {
     // show cart dropdown
     cartHover.classList.remove("hidden");
 
@@ -265,15 +270,15 @@ addToCartBtn.onclick = function() {
     // UPDATE CART DROPDOWN DETAILS
     populateCartDropdown();
 
+    // SHOW CART DROPDOWN
+    showCartDropdownForThreeSeconds();
 }
 
-// DOESN'T WORK - show dropdown when hover over cart icon
+// show dropdown when hover over cart icon
 detailCartContainer.onmouseenter = function() {
     cartHover.classList.remove("hidden");
-    console.log('hi')
 }
 
 detailCartContainer.onmouseleave = function() {
     cartHover.classList.add("hidden");
-    console.log('bye')
 }
