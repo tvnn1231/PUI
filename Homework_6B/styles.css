@@ -314,6 +314,48 @@ select {
     background-color: #A65C43;
 }
 
+/* Product detail - carousel */
+.product-carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+}
+
+.product-carousel-slide {
+    margin: 20px;
+}
+
+.product-carousel-img {
+    width: 250px;
+    height: 180px;
+}
+
+.product-carousel-l-arrow img,
+.product-carousel-r-arrow img {
+    background-color: transparent;
+    width: 25px;
+    height: 50px;
+}
+
+.product-carousel-l-arrow {
+    background-color: transparent;
+    position: relative;
+    left: -40px;
+    bottom: 230px;
+}
+
+.product-carousel-r-arrow {
+    background-color: transparent;
+    position: relative;
+    left: 1180px;
+    bottom: 285px;
+}
+
+.product-carousel-l-arrow:hover,
+.product-carousel-r-arrow:hover {
+    cursor: pointer;
+}
+
 /* Cart Page */
 
 .cart-container {

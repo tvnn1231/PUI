@@ -282,3 +282,16 @@ detailCartContainer.onmouseenter = function() {
 detailCartContainer.onmouseleave = function() {
     cartHover.classList.add("hidden");
 }
+
+// carousel
+let productCarouselL = document.getElementById("product-carousel-l");
+let productCarouselR = document.getElementById("product-carousel-r");
+let productCarousel = document.getElementById("product-carousel")
+
+productCarouselL.onclick = function() {
+    productCarousel.scrollLeft -= 290;
+}
+
+productCarouselR.onclick = function() {
+    productCarousel.scrollLeft += 290;
+}
