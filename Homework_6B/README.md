@@ -1,4 +1,4 @@
-# homework_5
+# homework_6B
 
 Pages:
   <ul>
@@ -15,4 +15,11 @@ Pages:
     <li>Pumpkin Spice Product Detail Page</li>
     <li>Caramel Pecan Product Detail Page</li>
     <li>Cart Page</li>
+  </ul>
+
+Functionality:
+  <ul>
+    <li>Add items to cart</li>
+    <li>View items on shopping cart page</li>
+    <li>Remove items from cart</li>
   </ul>
