@@ -48,7 +48,7 @@ let Walnut = new productDetail(
     );
 let GF = new productDetail(
     "gfId", 
-    "images/1_fallon-michael-H6OBZaVveCA-unsplash.jpg", 
+    "images/2_fallon-michael-DnGGIffnjTY-unsplash.jpg", 
     "images/sergio-arze-hQctjbWa8hc-unsplash.jpg",
     "images/brina-blum-P9WkD82hLUI-unsplash.jpg",
     "images/nathan-dumlao-pJllO6r0pKo-unsplash.jpg",
