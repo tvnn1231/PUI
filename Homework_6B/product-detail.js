@@ -45,7 +45,7 @@ let Walnut = new productDetail(
     "Walnut", 
     2.75, 
     "A gooey cinnamon roll with some added crunch!"
-    );
+);
 let GF = new productDetail(
     "gfId", 
     "images/2_fallon-michael-DnGGIffnjTY-unsplash.jpg", 
@@ -55,7 +55,8 @@ let GF = new productDetail(
     "Gluten free original cinnamon roll", 
     "Original (Gluten Free)", 
     2.75, 
-    "Exactly the same as our original cinnamon roll, just gluten free!");
+    "Exactly the same as our original cinnamon roll, just gluten free!"
+);
 let Pumpkin = new productDetail(
     "pumpkinId", 
     "images/cinnamon-roll-4719023_1920.jpg", 
