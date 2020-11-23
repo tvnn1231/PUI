@@ -1,0 +1,28 @@
+* {
+    font-family: 'Oswald', sans-serif;
+    background-color: #02004B;
+    font-size: 24px;
+}
+
+.home-h1 {
+    font-size: 2.5em;
+    margin-top: 20%;
+    margin-bottom: 15%;
+}
+
+.home-body {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    color: #ffffff;
+}
+
+.what-can-help {
+    color: #FFC700;
+    display: inline-block;
+    margin-top: 10%;
+}
+
+.what-can-help:hover {
+    color: #ffa800;
+}
