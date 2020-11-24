@@ -27,6 +27,14 @@
 
 .what-can-help:hover {
     color: #ffa800;
+    animation-name: what-can-help-hover;
+    animation-duration: 250ms;
+    animation-timing-function: ease-in;
+}
+
+@keyframes what-can-help-hover {
+    0%    {color: #FFC700}
+    100%  {color: #ffa800}
 }
 
 /* INITIAL HOME */
