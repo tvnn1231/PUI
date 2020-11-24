@@ -4,13 +4,15 @@
     font-size: 24px;
 }
 
-.home-h1 {
+/* LANDING PAGE */
+
+.landing-h1 {
     font-size: 2.5em;
     margin-top: 20%;
     margin-bottom: 15%;
 }
 
-.home-body {
+.landing-body {
     width: 50%;
     margin: 0 auto;
     text-align: center;
@@ -25,4 +27,31 @@
 
 .what-can-help:hover {
     color: #ffa800;
+}
+
+/* INITIAL HOME */
+
+.initial-h1 {
+    color: #ffffff;
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.initial-span {
+    font-size: 1em;
+    color: #FFC700;
+}
+
+.initial-p {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    color: #ffffff;
+}
+
+#initial-home {
+    display: block;
+    margin: 4% auto 2% auto;
 }
