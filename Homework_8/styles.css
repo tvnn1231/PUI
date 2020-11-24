@@ -59,7 +59,11 @@
     color: #ffffff;
 }
 
-#initial-home {
+#initial-home-bulb {
     display: block;
     margin: 4% auto 2% auto;
+}
+
+#click-on-lightbulb {
+    margin-bottom: 5%;
 }
