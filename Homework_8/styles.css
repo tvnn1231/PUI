@@ -1,7 +1,11 @@
 * {
     font-family: 'Oswald', sans-serif;
-    background-color: #02004B;
     font-size: 24px;
+}
+
+html body {                         /* Bootstrap defaults to white background unless css is specified like this */
+    background-color: #02004B;
+    min-height: 100vh;
 }
 
 /* LANDING PAGE */
@@ -66,4 +70,12 @@
 
 #click-on-lightbulb {
     margin-bottom: 5%;
+}
+
+#main-pipes {
+    display: none;
+    margin: 0 auto;
+    opacity: 0;
+    position: relative;
+    bottom: 475px;
 }
