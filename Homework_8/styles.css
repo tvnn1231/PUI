@@ -3,9 +3,13 @@
     font-size: 24px;
 }
 
-html body {                         /* Bootstrap defaults to white background unless css is specified like this */
+html {                         
+    max-height: 100vh;
+}
+
+html body {                     /* Bootstrap defaults to white background unless css is specified like this */
     background-color: #02004B;
-    min-height: 100vh;
+
 }
 
 /* LANDING PAGE */
@@ -47,8 +51,8 @@ html body {                         /* Bootstrap defaults to white background un
     color: #ffffff;
     font-size: 1.5em;
     text-align: center;
-    margin-top: 10%;
-    margin-bottom: 5%;
+    margin-top: 7%;
+    margin-bottom: 4%;
 }
 
 .initial-span {
@@ -68,7 +72,7 @@ html body {                         /* Bootstrap defaults to white background un
 }
 
 #click-on-lightbulb {
-    margin-bottom: 5%;
+    /* margin-bottom: 5%; */
 }
 
 #main-pipes {
@@ -76,9 +80,9 @@ html body {                         /* Bootstrap defaults to white background un
     margin: 0 auto;
     opacity: 0;
     position: relative;
-    bottom: 50%;
+    /* bottom: 80%; */
     /* bottom: 75%; */
-    /* bottom: 475px; */
+    bottom: 775px;
 }
 
 /* media query #main-pipes bottom */
@@ -89,3 +93,13 @@ html body {                         /* Bootstrap defaults to white background un
 #water-word:hover {
     cursor: pointer;
 }
+
+#initial-home-bulb {
+    width: 1440px;
+    height: 900px;
+}
+
+/* #main-pipes {
+    width: 40%;
+    height: 40%;
+} */
