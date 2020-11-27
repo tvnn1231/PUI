@@ -1,5 +1,3 @@
-gsap.registerPlugin()
-
 // lets
 let initialHomeBody = document.getElementById("initial-home-body");
 let lightbulb = document.getElementById("initial-home-bulb");
@@ -32,7 +30,7 @@ let shape14 = document.getElementById("shape14");
 let shape15 = document.getElementById("shape15");
 
 
-// lightbulb animation
+// LIGHTBULB ANIMATION
 let lightbulbtl = gsap.timeline({paused: true});
 
 lightbulbtl
@@ -47,7 +45,7 @@ lightbulbtl
 lightbulb.onclick = function(){
     lightbulbtl.play();
     mainPipes.style.display = "block";
-    initialHomeBody.style.height = "100vh";             // otherwise show up below screen
+    initialHomeBody.style.height = "100vh";             // otherwise shows up below screen
 }
 
 // SUN ANIMATION
@@ -135,3 +133,14 @@ waterWord.onclick = function() {
     mainPipes.style.display = "none";
 }
 
+
+// REVERSE ANIMATIONS
+
+backBtn.onclick = function() {
+    suntl.reverse();
+    windtl.reverse();
+    watertl.reverse();
+    setTimeout(function() {                 // delays pipes re-displaying for 3.5 seconds
+        mainPipes.style.display = "block";
+    }, 3500);
+}
