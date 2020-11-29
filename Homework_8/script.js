@@ -71,9 +71,33 @@ suntl
 
 // 1y, 2xy, 3xy, 7y, 8xy, 9y, 10xy 
 
+// set viewport so lightbulb is positioned correctly
+function viewport600() {
+    lightbulb.setAttribute("viewBox", "-560 -100 1440 600");
+    lightbulb.style.height = "600px";
+    mainPipes.style.bottom = "450px";
+}
+
+// set viewport so animation isn't cut off
+function viewport900() {
+    lightbulb.setAttribute("viewBox", "-560 -100 1440 900");
+    lightbulb.style.height = "900px";
+}
+
 sunWord.onclick = function() {
+    viewport900();
     suntl.play();
     mainPipes.style.display = "none";
+    lightbulb.setAttribute("picture", "sun");
+    if (lightbulb.getAttribute("picture") === "sun") {
+        console.log("hello");
+        lightbulb.onclick = function() {
+            mainPipes.style.display = "none";
+        }
+        shape1.onclick = function() {
+            console.log('hi');
+        }
+    }
 }
 
 // WIND ANIMATION
@@ -100,6 +124,7 @@ windtl
 // 5xy, 7xy, 8xy, 9xy, 11xy
 
 windWord.onclick = function() {
+    viewport900();
     windtl.play();
     mainPipes.style.display = "none";
 }
@@ -129,6 +154,7 @@ watertl
 // 1xy, 2xy, 3xy, 4xy, 9x
 
 waterWord.onclick = function() {
+    viewport900();
     watertl.play();
     mainPipes.style.display = "none";
 }
@@ -143,4 +169,6 @@ backBtn.onclick = function() {
     setTimeout(function() {                 // delays pipes re-displaying for 3.5 seconds
         mainPipes.style.display = "block";
     }, 3500);
+    setTimeout(viewport600, 3000)
+    // viewport600();
 }

@@ -81,7 +81,10 @@ html body {                     /* Bootstrap defaults to white background unless
     position: relative;
     /* bottom: 80%; */
     /* bottom: 75%; */
-    bottom: 775px;
+    /* bottom: 775px;     */
+        /* for viewport height 900 */
+    bottom: 450px;          
+        /* for viewport height 600 */
 }
 
 /* media query #main-pipes bottom */
@@ -94,8 +97,11 @@ html body {                     /* Bootstrap defaults to white background unless
 }
 
 #initial-home-bulb {
-    width: 1440px;
-    height: 900px;
+    /* width: 1440px; */
+    height: 600px;
+    /* height: 900px; */
+    /* width: 1200px;   1440 */
+    /* height: 750px;  900*/
 }
 
 /* #main-pipes {
