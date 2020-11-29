@@ -84,18 +84,41 @@ function viewport900() {
     lightbulb.style.height = "900px";
 }
 
+// set modal attributes for shapes
+let shape;
+function setModalAttributes() {
+    shape.setAttribute("type", "button");
+    shape.setAttribute("data-toggle", "modal");
+    shape.setAttribute("data-target", id);
+}
+
 sunWord.onclick = function() {
     viewport900();
     suntl.play();
     mainPipes.style.display = "none";
+
+    // so correct modals show up
+    // shapes clockwise: 8, 10, 7, 9
     lightbulb.setAttribute("picture", "sun");
     if (lightbulb.getAttribute("picture") === "sun") {
-        console.log("hello");
+
+        // set modal attributes for shapes 7, 8, 9, and 10
+        shape = shape8;
+        id = "#sun8";
+        setModalAttributes();
+        shape = shape10;
+        id = "#sun10";
+        setModalAttributes();
+        shape = shape7;
+        id = "#sun7";
+        setModalAttributes();
+        shape = shape9;
+        id = "#sun9";
+        setModalAttributes();
+        
+        // prevent pipes from showing up
         lightbulb.onclick = function() {
             mainPipes.style.display = "none";
-        }
-        shape1.onclick = function() {
-            console.log('hi');
         }
     }
 }

@@ -108,3 +108,7 @@ html body {                     /* Bootstrap defaults to white background unless
     width: 40%;
     height: 40%;
 } */
+
+#modal-close {
+    margin-left: 90%;
+}
