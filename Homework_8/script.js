@@ -34,7 +34,7 @@ let shape15 = document.getElementById("shape15");
 let lightbulbtl = gsap.timeline({paused: true});
 
 lightbulbtl
-.to(lightbulb, 1, {x: "+=0", y: "-=357", transformOrigin: "50%, 50%"}, 0)
+.to(lightbulb, 1, {x: "+=0", y: "-=230", scale: 1.2, transformOrigin: "50%, 50%"}, 0)
 .to(initialH1, 1, {css: {opacity: 0}}, 0)
 .to(initialP, 1, {css: {opacity: 0}}, 0)
 .to(clickOnLightbulb, 1, {css: {opacity: 0}}, 0)
@@ -45,7 +45,7 @@ lightbulbtl
 lightbulb.onclick = function(){
     lightbulbtl.play();
     mainPipes.style.display = "block";
-    initialHomeBody.style.height = "100vh";             // otherwise shows up below screen
+    // initialHomeBody.style.height = "100vh";             // otherwise shows up below screen
 }
 
 // SUN ANIMATION
@@ -73,15 +73,15 @@ suntl
 
 // set viewport so lightbulb is positioned correctly
 function viewport600() {
-    lightbulb.setAttribute("viewBox", "-560 -100 1440 600");
-    lightbulb.style.height = "600px";
-    mainPipes.style.bottom = "450px";
+    lightbulb.setAttribute("viewBox", "-560 -50 1440 500")
+    lightbulb.style.height = "300px"
+    mainPipes.style.bottom = "250px";
 }
 
 // set viewport so animation isn't cut off
 function viewport900() {
-    lightbulb.setAttribute("viewBox", "-560 -100 1440 900");
-    lightbulb.style.height = "900px";
+    lightbulb.setAttribute("viewBox", "-560 -83 1440 900");
+    lightbulb.style.height = "540px";
 }
 
 // set modal attributes for shapes
@@ -192,6 +192,5 @@ backBtn.onclick = function() {
     setTimeout(function() {                 // delays pipes re-displaying for 3.5 seconds
         mainPipes.style.display = "block";
     }, 3500);
-    setTimeout(viewport600, 3000)
-    // viewport600();
+    setTimeout(viewport600, 3500)
 }
