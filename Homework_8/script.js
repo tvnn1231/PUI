@@ -42,16 +42,14 @@ lightbulbtl
 .to(pipeElements, 1, {css: {opacity: 1}}, 0.5)
 
 function showPipes() {
-    let allPipeElements = document.getElementsByClassName("pipes");
-    for (i=0;i<allPipeElements.length;i+=1){
-        allPipeElements[i].style.display = 'block';
+    for (i=0;i<pipeElements.length;i+=1){
+        pipeElements[i].style.display = 'block';
     }
 }
 
 function hidePipes() {
-    let allPipeElements = document.getElementsByClassName("pipes");
-    for (i=0;i<allPipeElements.length;i+=1){
-        allPipeElements[i].style.display = 'none';
+    for (i=0;i<pipeElements.length;i+=1){
+        pipeElements[i].style.display = 'none';
     }
 }
 
@@ -109,6 +107,12 @@ function setModalAttributes() {
     shape.setAttribute("data-target", id);
 }
 
+// display back button
+let backbtntl = gsap.timeline({paused: true});
+
+backbtntl
+.to(backBtn, 1, {css: {opacity: 1}}, 0)
+
 for (i = 0;i < sunClick.length; i += 1) {
     sunClick[i].onclick = function() {
         suntl.play();
@@ -131,6 +135,11 @@ for (i = 0;i < sunClick.length; i += 1) {
             
             // prevent pipes from showing up
             lightbulb.onclick = hidePipes();
+
+            // show back button
+            backBtn.style.display = "block";
+            backbtntl.play();
+            backBtn.classList.add("sun-back-btn");
         }
     }
 }
@@ -182,6 +191,11 @@ for (i = 0; i < windClick.length; i += 1) {
             
             // prevent pipes from showing up
             lightbulb.onclick = hidePipes();
+
+            // show back button
+            backBtn.style.display = "block";
+            backbtntl.play();
+            backBtn.classList.add("wind-back-btn");
         }
     }
 }
@@ -265,6 +279,11 @@ for (i = 0; i < waterClick.length; i += 1) {
             
             // prevent pipes from showing up
             lightbulb.onclick = hidePipes();
+
+            // show back button
+            backBtn.style.display = "block";
+            backbtntl.play();
+            backBtn.classList.add("water-back-btn");
         }
     }
 }
@@ -306,6 +325,7 @@ backBtn.onclick = function() {
     windtl.reverse();
     watertl.reverse();
     setTimeout(showPipes, 3500)                 // delays pipes re-displaying for 3.5 seconds
+    backbtntl.reverse();
     // setTimeout(function() {                 
     //     mainPipes.style.display = "block";
     // }, 3500);

@@ -149,6 +149,43 @@ html body {                     /* Bootstrap defaults to white background unless
 
 #back-btn {
     position: absolute;
+    opacity: 0;
+    display: none;
     bottom: 10%;
     z-index: 1;
+    border-radius: 0;
+    font-family: 'Oswald', 'sans-serif';
+    font-size: .8em;
+}
+
+/* Back button colors */
+
+.sun-back-btn {
+    background-color: #FFF500;
+    color: #909090;
+}
+
+.sun-back-btn:hover {
+    background-color: #FFF500;
+    color: #000000;
+}
+
+.wind-back-btn {
+    background-color: #E5E5E5;
+    color: #727272;
+}
+
+.wind-back-btn:hover {
+    background-color: #E5E5E5;
+    color: #000000;
+}
+
+.water-back-btn {
+    background-color: #46A6FF;
+    color: #E5E5E5;
+}
+
+.water-back-btn:hover {
+    background-color: #46A6FF;
+    color: #000000;
 }
