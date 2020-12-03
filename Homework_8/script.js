@@ -1,16 +1,17 @@
 // lets
 let initialHomeBody = document.getElementById("initial-home-body");
-let lightbulb = document.getElementById("initial-home-bulb");
+let lightbulb = document.getElementById("bulb-and-pipes");
 let initialH1 = document.getElementById("initial-h1");
 let initialP = document.getElementById("initial-p");
 let clickOnLightbulb = document.getElementById("click-on-lightbulb");
-let mainPipes = document.getElementById("main-pipes");
+// let mainPipes = document.getElementById("main-pipes");
+let pipeElements = document.getElementsByClassName("pipes");
 let backBtn = document.getElementById("back-btn");
 
 // words
-let sunWord = document.getElementById("sun-word");
-let windWord = document.getElementById("wind-word");
-let waterWord = document.getElementById("water-word");
+let sunRectangle = document.getElementById("sun-rectangle");
+let windRectangle = document.getElementById("wind-rectangle");
+let waterRectangle = document.getElementById("water-rectangle");
 
 // shapes
 let shape1 = document.getElementById("shape1");
@@ -38,13 +39,29 @@ lightbulbtl
 .to(initialH1, 1, {css: {opacity: 0}}, 0)
 .to(initialP, 1, {css: {opacity: 0}}, 0)
 .to(clickOnLightbulb, 1, {css: {opacity: 0}}, 0)
-.to(mainPipes, 1, {css: {opacity: 1}}, 0.5)
+.to(pipeElements, 1, {css: {opacity: 1}}, 0.5)
+
+function showPipes() {
+    let allPipeElements = document.getElementsByClassName("pipes");
+    for (i=0;i<allPipeElements.length;i+=1){
+        allPipeElements[i].style.display = 'block';
+    }
+}
+
+function hidePipes() {
+    let allPipeElements = document.getElementsByClassName("pipes");
+    for (i=0;i<allPipeElements.length;i+=1){
+        allPipeElements[i].style.display = 'none';
+    }
+}
 
 
 // lightbulb moves up, pipes come in, other elements disappear
 lightbulb.onclick = function(){
     lightbulbtl.play();
-    mainPipes.style.display = "block";
+    setTimeout(showPipes, 1000);
+
+    // pipeElements.style.display = "block";
     // initialHomeBody.style.height = "100vh";             // otherwise shows up below screen
 }
 
@@ -92,10 +109,9 @@ function setModalAttributes() {
     shape.setAttribute("data-target", id);
 }
 
-sunWord.onclick = function() {
-    viewport900();
+sunRectangle.onclick = function() {
+    // viewport900();
     suntl.play();
-    mainPipes.style.display = "none";
 
     // so correct modals show up
     // shapes clockwise: 8, 10, 7, 9
@@ -117,9 +133,7 @@ sunWord.onclick = function() {
         setModalAttributes();
         
         // prevent pipes from showing up
-        lightbulb.onclick = function() {
-            mainPipes.style.display = "none";
-        }
+        lightbulb.onclick = hidePipes();
     }
 }
 
@@ -133,7 +147,7 @@ windtl
 .to(shape3, 2, {css: {x: "-=331.6858", y: "+=276.3445", rotation: "+=134.93", transformOrigin: "50%, 50%", fill: "#0C9612"}}, "-=1.9")
 .to(shape4, 2, {css: {x: "-=253.7858", y: "+=36.844", rotation: "-=83.97", transformOrigin: "50%, 50%", fill: "#71B637"}}, "-=1.9")
 .to(shape5, 2, {css: {x: "+=196.7602", y: "+=218.959", rotation: "+=40.54", transformOrigin: "50%, 50%", fill: "#E5E5E5"}}, "-=1.9")
-.to(shape6, 2, {css: {x: "+=36.8012", y: "-=111.0425", rotation: "+=18.66", transformOrigin: "50%, 50%", fill: "#0C9612"}}, "-=1.9")
+.to(shape6, 2, {css: {x: "+=36.8012", y: "-=87.0425", rotation: "+=18.66", transformOrigin: "50%, 50%", fill: "#0C9612"}}, "-=1.9")
 .to(shape7, 2, {css: {x: "+=334.7462", y: "+=122.304", rotation: "+=117.66", transformOrigin: "50%, 50%", fill: "#FFFFFF"}}, "-=1.9")
 .to(shape8, 2, {css: {x: "+=150.4717", y: "+=385.676", rotation: "+=196.05", transformOrigin: "50%, 50%", fill: "#FFFFFF"}}, "-=1.9")
 .to(shape9, 2, {css: {x: "+=158.4067", y: "+=60.004", rotation: "-=73.67", transformOrigin: "50%, 50%", fill: "#FFFFFF"}}, "-=1.9")
@@ -146,10 +160,37 @@ windtl
 
 // 5xy, 7xy, 8xy, 9xy, 11xy
 
-windWord.onclick = function() {
-    viewport900();
+windRectangle.onclick = function() {
+    // viewport900();
+    // expand viewport
+    // lightbulb.setAttribute("viewBox", "0 0 963 957.35");
+    // lightbulb.style.height = "600px"
+    lightbulb.style.width = "100%";
+
     windtl.play();
-    mainPipes.style.display = "none";
+    // so correct modals show up
+    // shapes clockwise: 8, 10, 7, 9
+    lightbulb.setAttribute("picture", "wind");
+    if (lightbulb.getAttribute("picture") === "wind") {
+
+        // set modal attributes for shapes 7, 8, 9, and 10
+        shape = shape8;
+        id = "#wind8";
+        setModalAttributes();
+        shape = shape10;
+        id = "#wind10";
+        setModalAttributes();
+        shape = shape7;
+        id = "#wind7";
+        setModalAttributes();
+        shape = shape9;
+        id = "#wind9";
+        setModalAttributes();
+        
+        // prevent pipes from showing up
+        // ============== NEEDED THIS FOR PIPES NOT TO SHOW UP ============== //
+        lightbulb.onclick = hidePipes();
+    }
 }
 
 
@@ -172,14 +213,37 @@ watertl
 .to(shape12, 2, {css: {x: "+=39", y: "+=353.44", rotation: "+=0", transformOrigin: "50%, 50%", fill: "#0085FF"}}, "-=1.9")
 .to(shape13, 2, {css: {x: "+=292", y: "-=54", rotation: "-=90", transformOrigin: "50%, 50%", fill: "#0085FF"}}, "-=1.9")
 .to(shape14, 2, {css: {x: "-=288", y: "+=171", rotation: "-=90", transformOrigin: "50%, 50%", fill: "#46A6FF"}}, "-=1.9")
-.to(shape15, 2, {css: {x: "+=130", y: "-=371", rotation: "-=90", transformOrigin: "50%, 50%", fill: "#1C5BFF"}}, "-=1.9")
+.to(shape15, 2, {css: {x: "+=130", y: "-=363", rotation: "-=90", transformOrigin: "50%, 50%", fill: "#1C5BFF"}}, "-=1.9")
 
 // 1xy, 2xy, 3xy, 4xy, 9x
 
-waterWord.onclick = function() {
-    viewport900();
+waterRectangle.onclick = function() {
+    // viewport900();
     watertl.play();
-    mainPipes.style.display = "none";
+
+    // so correct modals show up
+    // shapes clockwise: 8, 10, 7, 9
+    lightbulb.setAttribute("picture", "water");
+    if (lightbulb.getAttribute("picture") === "water") {
+
+        // set modal attributes for shapes 7, 8, 9, and 10
+        shape = shape8;
+        id = "#water8";
+        setModalAttributes();
+        shape = shape10;
+        id = "#water10";
+        setModalAttributes();
+        shape = shape7;
+        id = "#water7";
+        setModalAttributes();
+        shape = shape9;
+        id = "#water9";
+        setModalAttributes();
+        
+        // prevent pipes from showing up
+        // ============== NEEDED THIS FOR PIPES NOT TO SHOW UP ============== //
+        lightbulb.onclick = hidePipes();
+    }
 }
 
 
@@ -189,8 +253,9 @@ backBtn.onclick = function() {
     suntl.reverse();
     windtl.reverse();
     watertl.reverse();
-    setTimeout(function() {                 // delays pipes re-displaying for 3.5 seconds
-        mainPipes.style.display = "block";
-    }, 3500);
-    setTimeout(viewport600, 3500)
+    setTimeout(showPipes, 3500)                 // delays pipes re-displaying for 3.5 seconds
+    // setTimeout(function() {                 
+    //     mainPipes.style.display = "block";
+    // }, 3500);
+    // setTimeout(viewport600, 3500)
 }

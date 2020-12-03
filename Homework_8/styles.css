@@ -80,25 +80,48 @@ html body {                     /* Bootstrap defaults to white background unless
     margin: 0 auto 2% auto;
 }
 
-#click-on-lightbulb {
-    /* margin-bottom: 5%; */
+#bulb-and-pipes {
+    z-index: 0;
+    display: block;
+    margin: 3% auto 0 auto;
 }
 
-#main-pipes {
+#click-on-lightbulb {
+    z-index: 1;
+    display: block;
+    position: relative;
+    bottom: 225px;
+}
+
+.pipes {
     display: none;
-    margin: 0 auto;
+    /* margin: 0 auto;
     opacity: 0;
     height: 360px;
     position: relative;
-    bottom: 250px;
+    bottom: 250px; */
 }
 
 /* media query #main-pipes bottom? */
 
-#initial-home-bulb:hover,
-#sun-word:hover,
-#wind-word:hover,
-#water-word:hover {
+#shape1:hover,
+#shape2:hover,
+#shape3:hover,
+#shape4:hover,
+#shape5:hover,
+#shape6:hover,
+#shape7:hover,
+#shape8:hover,
+#shape9:hover,
+#shape10:hover,
+#shape11:hover,
+#shape12:hover,
+#shape13:hover,
+#shape14:hover,
+#shape15:hover,
+#sun-rectangle:hover,
+#wind-rectangle:hover,
+#water-rectangle:hover {
     cursor: pointer;
 }
 
@@ -109,6 +132,12 @@ html body {                     /* Bootstrap defaults to white background unless
 
     /* margin: 0 auto; */
 
+}
+
+#bulb-and-pipes {
+    height: 500px;
+    width: 100%;
+    padding: 0 10%;             /* so the sides don't get cut off when resizing */
 }
 
 #modal-close {
