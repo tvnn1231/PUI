@@ -8,10 +8,10 @@ let clickOnLightbulb = document.getElementById("click-on-lightbulb");
 let pipeElements = document.getElementsByClassName("pipes");
 let backBtn = document.getElementById("back-btn");
 
-// words
-let sunRectangle = document.getElementById("sun-rectangle");
-let windRectangle = document.getElementById("wind-rectangle");
-let waterRectangle = document.getElementById("water-rectangle");
+// words and rectangles
+let sunClick = document.getElementsByClassName("sun-click");
+let windClick = document.getElementsByClassName("wind-click");
+let waterClick = document.getElementsByClassName("water-click");
 
 // shapes
 let shape1 = document.getElementById("shape1");
@@ -109,31 +109,29 @@ function setModalAttributes() {
     shape.setAttribute("data-target", id);
 }
 
-sunRectangle.onclick = function() {
-    // viewport900();
-    suntl.play();
-
-    // so correct modals show up
-    // shapes clockwise: 8, 10, 7, 9
-    lightbulb.setAttribute("picture", "sun");
-    if (lightbulb.getAttribute("picture") === "sun") {
-
-        // set modal attributes for shapes 7, 8, 9, and 10
-        shape = shape8;
-        id = "#sun8";
-        setModalAttributes();
-        shape = shape10;
-        id = "#sun10";
-        setModalAttributes();
-        shape = shape7;
-        id = "#sun7";
-        setModalAttributes();
-        shape = shape9;
-        id = "#sun9";
-        setModalAttributes();
-        
-        // prevent pipes from showing up
-        lightbulb.onclick = hidePipes();
+for (i = 0;i < sunClick.length; i += 1) {
+    sunClick[i].onclick = function() {
+        suntl.play();
+        lightbulb.setAttribute("picture", "sun");
+        if (lightbulb.getAttribute("picture") === "sun") {
+    
+            // set modal attributes for shapes 7, 8, 9, and 10
+            shape = shape8;
+            id = "#sun8";
+            setModalAttributes();
+            shape = shape10;
+            id = "#sun10";
+            setModalAttributes();
+            shape = shape7;
+            id = "#sun7";
+            setModalAttributes();
+            shape = shape9;
+            id = "#sun9";
+            setModalAttributes();
+            
+            // prevent pipes from showing up
+            lightbulb.onclick = hidePipes();
+        }
     }
 }
 
@@ -160,38 +158,66 @@ windtl
 
 // 5xy, 7xy, 8xy, 9xy, 11xy
 
-windRectangle.onclick = function() {
-    // viewport900();
-    // expand viewport
-    // lightbulb.setAttribute("viewBox", "0 0 963 957.35");
-    // lightbulb.style.height = "600px"
-    lightbulb.style.width = "100%";
 
-    windtl.play();
-    // so correct modals show up
-    // shapes clockwise: 8, 10, 7, 9
-    lightbulb.setAttribute("picture", "wind");
-    if (lightbulb.getAttribute("picture") === "wind") {
-
-        // set modal attributes for shapes 7, 8, 9, and 10
-        shape = shape8;
-        id = "#wind8";
-        setModalAttributes();
-        shape = shape10;
-        id = "#wind10";
-        setModalAttributes();
-        shape = shape7;
-        id = "#wind7";
-        setModalAttributes();
-        shape = shape9;
-        id = "#wind9";
-        setModalAttributes();
-        
-        // prevent pipes from showing up
-        // ============== NEEDED THIS FOR PIPES NOT TO SHOW UP ============== //
-        lightbulb.onclick = hidePipes();
+for (i = 0; i < windClick.length; i += 1) {
+    windClick[i].onclick = function() {
+        windtl.play();
+        lightbulb.style.width = "100%";         // so sides don't get cut off
+        lightbulb.setAttribute("picture", "wind");
+        if (lightbulb.getAttribute("picture") === "wind") {
+    
+            // set modal attributes for shapes 7, 8, 9, and 10
+            shape = shape8;
+            id = "#wind8";
+            setModalAttributes();
+            shape = shape10;
+            id = "#wind10";
+            setModalAttributes();
+            shape = shape7;
+            id = "#wind7";
+            setModalAttributes();
+            shape = shape9;
+            id = "#wind9";
+            setModalAttributes();
+            
+            // prevent pipes from showing up
+            lightbulb.onclick = hidePipes();
+        }
     }
 }
+
+// windRectangle.onclick = function() {
+//     // viewport900();
+//     // expand viewport
+//     // lightbulb.setAttribute("viewBox", "0 0 963 957.35");
+//     // lightbulb.style.height = "600px"
+//     lightbulb.style.width = "100%";         /// so sides don't get cut off
+
+//     windtl.play();
+//     // so correct modals show up
+//     // shapes clockwise: 8, 10, 7, 9
+//     lightbulb.setAttribute("picture", "wind");
+//     if (lightbulb.getAttribute("picture") === "wind") {
+
+//         // set modal attributes for shapes 7, 8, 9, and 10
+//         shape = shape8;
+//         id = "#wind8";
+//         setModalAttributes();
+//         shape = shape10;
+//         id = "#wind10";
+//         setModalAttributes();
+//         shape = shape7;
+//         id = "#wind7";
+//         setModalAttributes();
+//         shape = shape9;
+//         id = "#wind9";
+//         setModalAttributes();
+        
+//         // prevent pipes from showing up
+//         // ============== NEEDED THIS FOR PIPES NOT TO SHOW UP ============== //
+//         lightbulb.onclick = hidePipes();
+//     }
+// }
 
 
 // WATER ANIMATION
@@ -217,34 +243,60 @@ watertl
 
 // 1xy, 2xy, 3xy, 4xy, 9x
 
-waterRectangle.onclick = function() {
-    // viewport900();
-    watertl.play();
-
-    // so correct modals show up
-    // shapes clockwise: 8, 10, 7, 9
-    lightbulb.setAttribute("picture", "water");
-    if (lightbulb.getAttribute("picture") === "water") {
-
-        // set modal attributes for shapes 7, 8, 9, and 10
-        shape = shape8;
-        id = "#water8";
-        setModalAttributes();
-        shape = shape10;
-        id = "#water10";
-        setModalAttributes();
-        shape = shape7;
-        id = "#water7";
-        setModalAttributes();
-        shape = shape9;
-        id = "#water9";
-        setModalAttributes();
-        
-        // prevent pipes from showing up
-        // ============== NEEDED THIS FOR PIPES NOT TO SHOW UP ============== //
-        lightbulb.onclick = hidePipes();
+for (i = 0; i < waterClick.length; i += 1) {
+    waterClick[i].onclick = function() {
+        watertl.play();
+        lightbulb.setAttribute("picture", "water");
+        if (lightbulb.getAttribute("picture") === "water") {
+    
+            // set modal attributes for shapes 7, 8, 9, and 10
+            shape = shape8;
+            id = "#water8";
+            setModalAttributes();
+            shape = shape10;
+            id = "#water10";
+            setModalAttributes();
+            shape = shape7;
+            id = "#water7";
+            setModalAttributes();
+            shape = shape9;
+            id = "#water9";
+            setModalAttributes();
+            
+            // prevent pipes from showing up
+            lightbulb.onclick = hidePipes();
+        }
     }
 }
+
+// waterClick.onclick = function() {
+//     // viewport900();
+//     watertl.play();
+
+//     // so correct modals show up
+//     // shapes clockwise: 8, 10, 7, 9
+//     lightbulb.setAttribute("picture", "water");
+//     if (lightbulb.getAttribute("picture") === "water") {
+
+//         // set modal attributes for shapes 7, 8, 9, and 10
+//         shape = shape8;
+//         id = "#water8";
+//         setModalAttributes();
+//         shape = shape10;
+//         id = "#water10";
+//         setModalAttributes();
+//         shape = shape7;
+//         id = "#water7";
+//         setModalAttributes();
+//         shape = shape9;
+//         id = "#water9";
+//         setModalAttributes();
+        
+//         // prevent pipes from showing up
+//         // ============== NEEDED THIS FOR PIPES NOT TO SHOW UP ============== //
+//         lightbulb.onclick = hidePipes();
+//     }
+// }
 
 
 // REVERSE ANIMATIONS

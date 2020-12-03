@@ -119,6 +119,9 @@ html body {                     /* Bootstrap defaults to white background unless
 #shape13:hover,
 #shape14:hover,
 #shape15:hover,
+#sun-word:hover,
+#wind-word:hover,
+#water-word:hover,
 #sun-rectangle:hover,
 #wind-rectangle:hover,
 #water-rectangle:hover {
@@ -136,7 +139,7 @@ html body {                     /* Bootstrap defaults to white background unless
 
 #bulb-and-pipes {
     height: 500px;
-    width: 100%;
+    width: 100%;                /* so wind doesn't get cut off */
     padding: 0 10%;             /* so the sides don't get cut off when resizing */
 }
 
