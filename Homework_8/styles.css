@@ -12,12 +12,12 @@ html body {                     /* Bootstrap defaults to white background unless
 }
 
 #initial-home-body {            /* so it doesn't scroll */
-    position: absolute;
+    /* position: absolute;
     top: 0px;
     left: 0px;
     bottom: 0px;
     right: 0px;
-    overflow: hidden;
+    overflow: hidden; */
 }
 
 /* LANDING PAGE */
@@ -156,6 +156,39 @@ html body {                     /* Bootstrap defaults to white background unless
     border-radius: 0;
     font-family: 'Oswald', 'sans-serif';
     font-size: .8em;
+}
+
+#sun-title {
+    position: absolute;
+    bottom: 8%;
+    left: 100px;
+    font-family: 'Oswald', 'sans-serif';
+    font-size: 2em;
+    display: none;
+    color: #000000;
+    opacity: 0;
+}
+
+#wind-title {
+    position: absolute;
+    bottom: 8%;
+    left: 100px;
+    font-family: 'Oswald', 'sans-serif';
+    font-size: 2em;
+    display: none;
+    color: #000000;
+    opacity: 0;
+}
+
+#water-title {
+    position: absolute;
+    bottom: 8%;
+    left: 100px;
+    font-family: 'Oswald', 'sans-serif';
+    font-size: 2em;
+    display: none;
+    color: #000000;
+    opacity: 0;
 }
 
 /* Back button colors */

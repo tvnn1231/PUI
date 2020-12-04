@@ -30,6 +30,11 @@ let shape13 = document.getElementById("shape13");
 let shape14 = document.getElementById("shape14");
 let shape15 = document.getElementById("shape15");
 
+// titles
+let sunTitle = document.getElementById("sun-title");
+let windTitle = document.getElementById("wind-title");
+let waterTitle = document.getElementById("water-title");
+
 
 // LIGHTBULB ANIMATION
 let lightbulbtl = gsap.timeline({paused: true});
@@ -61,6 +66,58 @@ lightbulb.onclick = function(){
 
     // pipeElements.style.display = "block";
     // initialHomeBody.style.height = "100vh";             // otherwise shows up below screen
+}
+
+// set modal attributes for shapes
+let shape;
+function setModalAttributes() {
+    shape.setAttribute("type", "button");
+    shape.setAttribute("data-toggle", "modal");
+    shape.setAttribute("data-target", id);
+}
+
+// display back button
+let backbtntl = gsap.timeline({paused: true});
+backbtntl
+.to(backBtn, 1.5, {css: {opacity: 1}}, 0);
+
+function showBackBtn() {
+    backBtn.style.display = "block";
+    backbtntl.play();
+    if (lightbulb.getAttribute("picture") === "sun") {
+        backBtn.classList.add("sun-back-btn");
+    } else if (lightbulb.getAttribute("picture") === "wind") {
+        backBtn.classList.add("wind-back-btn");
+    } else if (lightbulb.getAttribute("picture") === "water") {
+        backBtn.classList.add("water-back-btn");                // DEBUG: button was gray not blue, had backbtn instead of backBtn (used inspect to find error "backbtn not defined")
+    }
+}
+
+// display titles
+let titletl = gsap.timeline({paused: true});
+titletl
+.to(sunTitle, 1.5, {css: {opacity: 1}}, 0)
+.to(windTitle, 1.5, {css: {opacity: 1}}, 0)
+.to(waterTitle, 1.5, {css: {opacity: 1}}, 0);
+
+
+function showTitle() {
+    if (lightbulb.getAttribute("picture") === "sun") {
+        sunTitle.style.display = "block";
+        windTitle.style.display = "none";                   // need or else after clicking back, new titles will display on top
+        waterTitle.style.display = "none";
+        titletl.play();
+    } else if (lightbulb.getAttribute("picture") === "wind") {
+        windTitle.style.display = "block";
+        sunTitle.style.display = "none";
+        waterTitle.style.display = "none";
+        titletl.play();
+    } else if (lightbulb.getAttribute("picture") === "water") {
+        waterTitle.style.display = "block";
+        sunTitle.style.display = "none";
+        windTitle.style.display = "none";
+        titletl.play();
+    }
 }
 
 // SUN ANIMATION
@@ -99,32 +156,8 @@ function viewport900() {
     lightbulb.style.height = "540px";
 }
 
-// set modal attributes for shapes
-let shape;
-function setModalAttributes() {
-    shape.setAttribute("type", "button");
-    shape.setAttribute("data-toggle", "modal");
-    shape.setAttribute("data-target", id);
-}
 
-// display back button
-let backbtntl = gsap.timeline({paused: true});
-backbtntl
-.to(backBtn, 1.5, {css: {opacity: 1}}, 0);
-
-function showBackBtn() {
-    backBtn.style.display = "block";
-    backbtntl.play();
-    if (lightbulb.getAttribute("picture") === "sun") {
-        backBtn.classList.add("sun-back-btn");
-    } else if (lightbulb.getAttribute("picture") === "wind") {
-        backBtn.classList.add("wind-back-btn");
-    } else if (lightbulb.getAttribute("picture") === "water") {
-        backBtn.classList.add("water-back-btn");                // DEBUG: button was gray not blue, had backbtn instead of backBtn (used inspect to find error "backbtn not defined")
-    }
-}
-
-for (i = 0;i < sunClick.length; i += 1) {
+for (i = 0; i < sunClick.length; i += 1) {
     sunClick[i].onclick = function() {
         suntl.play();
         lightbulb.setAttribute("picture", "sun");
@@ -147,8 +180,9 @@ for (i = 0;i < sunClick.length; i += 1) {
             // prevent pipes from showing up
             lightbulb.onclick = hidePipes();
 
-            // show back button after 1 second (so doesn't distract from lightbulb animation)
+            // show back button and title after 1 second (so doesn't distract from lightbulb animation)
             setTimeout(showBackBtn, 1000);
+            setTimeout(showTitle, 1000);
         }
     }
 }
@@ -202,8 +236,9 @@ for (i = 0; i < windClick.length; i += 1) {
             // prevent pipes from showing up
             lightbulb.onclick = hidePipes();
 
-            // show back button after 1 second
+            // show back button and title after 1 second
             setTimeout(showBackBtn, 1000);
+            setTimeout(showTitle, 1000);
         }
     }
 }
@@ -288,8 +323,9 @@ for (i = 0; i < waterClick.length; i += 1) {
             // prevent pipes from showing up
             lightbulb.onclick = hidePipes();
 
-            // show back button after 1 second
+            // show back button and title after 1 second
             setTimeout(showBackBtn, 1000);
+            setTimeout(showTitle, 1000);
         }
     }
 }
@@ -332,6 +368,7 @@ backBtn.onclick = function() {
     watertl.reverse();
     setTimeout(showPipes, 3000)                 // delays pipes re-displaying for 3 seconds
     backbtntl.reverse();
+    titletl.reverse();
     setTimeout(function() {                     // so color stays until button disappears
         backBtn.classList.remove("sun-back-btn", "wind-back-btn", "water-back-btn");
     }, 3000)
