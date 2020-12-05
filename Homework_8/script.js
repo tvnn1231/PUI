@@ -35,6 +35,11 @@ let sunTitle = document.getElementById("sun-title");
 let windTitle = document.getElementById("wind-title");
 let waterTitle = document.getElementById("water-title");
 
+// summaries
+let sunSum = document.getElementById("sun-summary");
+let windSum = document.getElementById("wind-summary");
+let waterSum = document.getElementById("water-summary");
+
 
 // LIGHTBULB ANIMATION
 let lightbulbtl = gsap.timeline({paused: true});
@@ -120,6 +125,33 @@ function showTitle() {
     }
 }
 
+// display summaries
+let sumtl = gsap.timeline({paused: true});
+sumtl
+.to(sunSum, 1.5, {css: {opacity: 1}}, 0)
+.to(windSum, 1.5, {css: {opacity: 1}}, 0)
+.to(waterSum, 1.5, {css: {opacity: 1}}, 0);
+
+
+function showSum() {
+    if (lightbulb.getAttribute("picture") === "sun") {
+        sunSum.style.display = "block";
+        windSum.style.display = "none";                   // need or else after clicking back, new Sums will display on top
+        waterSum.style.display = "none";
+        sumtl.play();
+    } else if (lightbulb.getAttribute("picture") === "wind") {
+        windSum.style.display = "block";
+        sunSum.style.display = "none";
+        waterSum.style.display = "none";
+        sumtl.play();
+    } else if (lightbulb.getAttribute("picture") === "water") {
+        waterSum.style.display = "block";
+        sunSum.style.display = "none";
+        windSum.style.display = "none";
+        sumtl.play();
+    }
+}
+
 // SUN ANIMATION
 let suntl = gsap.timeline({paused: true});
 
@@ -183,6 +215,7 @@ for (i = 0; i < sunClick.length; i += 1) {
             // show back button and title after 1 second (so doesn't distract from lightbulb animation)
             setTimeout(showBackBtn, 1000);
             setTimeout(showTitle, 1000);
+            setTimeout(showSum, 1000);
         }
     }
 }
@@ -239,6 +272,7 @@ for (i = 0; i < windClick.length; i += 1) {
             // show back button and title after 1 second
             setTimeout(showBackBtn, 1000);
             setTimeout(showTitle, 1000);
+            setTimeout(showSum, 1000);
         }
     }
 }
@@ -326,6 +360,7 @@ for (i = 0; i < waterClick.length; i += 1) {
             // show back button and title after 1 second
             setTimeout(showBackBtn, 1000);
             setTimeout(showTitle, 1000);
+            setTimeout(showSum, 1000);
         }
     }
 }
@@ -369,6 +404,7 @@ backBtn.onclick = function() {
     setTimeout(showPipes, 3000)                 // delays pipes re-displaying for 3 seconds
     backbtntl.reverse();
     titletl.reverse();
+    sumtl.reverse();
     setTimeout(function() {                     // so color stays until button disappears
         backBtn.classList.remove("sun-back-btn", "wind-back-btn", "water-back-btn");
     }, 3000)

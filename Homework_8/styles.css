@@ -81,7 +81,7 @@ html body {                     /* Bootstrap defaults to white background unless
 }
 
 #bulb-and-pipes {
-    z-index: 0;
+    z-index: 1;                 /* summary was on top of water-click so couldn't click */
     display: block;
     margin: 3% auto 0 auto;
 }
@@ -147,6 +147,7 @@ html body {                     /* Bootstrap defaults to white background unless
     margin-left: 90%;
 }
 
+/* Back button */
 #back-btn {
     position: absolute;
     opacity: 0;
@@ -156,39 +157,6 @@ html body {                     /* Bootstrap defaults to white background unless
     border-radius: 0;
     font-family: 'Oswald', 'sans-serif';
     font-size: .8em;
-}
-
-#sun-title {
-    position: absolute;
-    bottom: 8%;
-    left: 100px;
-    font-family: 'Oswald', 'sans-serif';
-    font-size: 2em;
-    display: none;
-    color: #000000;
-    opacity: 0;
-}
-
-#wind-title {
-    position: absolute;
-    bottom: 8%;
-    left: 100px;
-    font-family: 'Oswald', 'sans-serif';
-    font-size: 2em;
-    display: none;
-    color: #000000;
-    opacity: 0;
-}
-
-#water-title {
-    position: absolute;
-    bottom: 8%;
-    left: 100px;
-    font-family: 'Oswald', 'sans-serif';
-    font-size: 2em;
-    display: none;
-    color: #000000;
-    opacity: 0;
 }
 
 /* Back button colors */
@@ -222,3 +190,72 @@ html body {                     /* Bootstrap defaults to white background unless
     background-color: #46A6FF;
     color: #000000;
 }
+
+/* Titles */
+
+#sun-title,
+#wind-title,
+#water-title {
+    position: absolute;
+    bottom: 8%;
+    left: 100px;
+    font-family: 'Oswald', 'sans-serif';
+    font-size: 2em;
+    display: none;
+    color: #000000;
+    opacity: 0;
+}
+
+/* Summaries */
+
+#sun-summary,
+#wind-summary,
+#water-summary {
+    position: absolute;
+    bottom: 8%;
+    font-family: 'Oswald', 'sans-serif';
+    display: none;
+    color: #000000;
+    opacity: 0;
+}
+
+/* MEDIA QUERIES FOR SUMMARIES */
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 0px) and (max-width: 767px) {
+    #sun-summary,
+    #wind-summary,
+    #water-summary {
+        bottom: 85%;
+    }
+    /* #sun-sum-p,
+    #wind-sum-p,
+    #water-sum-p {
+        font-size: .8em;
+    } */
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    #sun-summary,
+    #wind-summary,
+    #water-summary {
+        bottom: 80%;
+    }
+    /* #sun-sum-p,
+    #wind-sum-p,
+    #water-sum-p {
+        font-size: .9em;
+    } */
+}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+    #sun-sum-p {
+        font-size: 1em;
+    }
+}
+
+/* // Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... } */
