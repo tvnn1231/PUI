@@ -203,19 +203,24 @@ for (i = 0; i < sunClick.length; i += 1) {
             shape = shape8;
             id = "#sun8";
             setModalAttributes();
-            shape.classList.add("sun-glow");
+            shape.classList.add("sun-glow")
+
             shape = shape10;
             id = "#sun10";
-            shape.classList.add("sun-glow");
             setModalAttributes();
+            shape.classList.add("sun-glow");
+
             shape = shape7;
             id = "#sun7";
-            shape.classList.add("sun-glow");
             setModalAttributes();
+            shape.classList.add("sun-glow");
+
+
             shape = shape9;
             id = "#sun9";
-            shape.classList.add("sun-glow");
             setModalAttributes();
+            shape.classList.add("sun-glow");
+
             
             // prevent pipes from showing up
             lightbulb.onclick = hidePipes();
@@ -263,15 +268,26 @@ for (i = 0; i < windClick.length; i += 1) {
             shape = shape8;
             id = "#wind8";
             setModalAttributes();
+            shape.classList.add("wind-glow");
+
+
             shape = shape10;
             id = "#wind10";
             setModalAttributes();
+            shape.classList.add("wind-glow");
+
+
             shape = shape7;
             id = "#wind7";
             setModalAttributes();
+            shape.classList.add("wind-glow");
+
+
             shape = shape9;
             id = "#wind9";
             setModalAttributes();
+            shape.classList.add("wind-glow");
+
             
             // DEBUG: had this outside if statement, needed to be inside for pipes not to show up after clicking (worked for sun bc had set up modals already)
             // prevent pipes from showing up
@@ -352,15 +368,27 @@ for (i = 0; i < waterClick.length; i += 1) {
             shape = shape8;
             id = "#water8";
             setModalAttributes();
+            shape.classList.add("water-glow");
+
+
             shape = shape10;
             id = "#water10";
             setModalAttributes();
+            shape.classList.add("water-glow");
+
+
             shape = shape7;
             id = "#water7";
             setModalAttributes();
+            shape.classList.add("water-glow");
+
+
             shape = shape9;
             id = "#water9";
             setModalAttributes();
+            shape.classList.add("water-glow");
+
+
             
             // prevent pipes from showing up
             lightbulb.onclick = hidePipes();
@@ -404,6 +432,9 @@ for (i = 0; i < waterClick.length; i += 1) {
 
 
 // REVERSE ANIMATIONS
+let sunGlow = document.getElementsByClassName("sun-glow")
+let windGlow = document.getElementsByClassName("sun-glow")
+let waterGlow = document.getElementsByClassName("sun-glow")
 
 backBtn.onclick = function() {
     suntl.reverse();
@@ -413,6 +444,21 @@ backBtn.onclick = function() {
     backbtntl.reverse();
     titletl.reverse();
     sumtl.reverse();
+    shape7.classList.remove("sun-glow", "wind-glow", "water-glow");
+    shape8.classList.remove("sun-glow", "wind-glow", "water-glow");
+    shape9.classList.remove("sun-glow", "wind-glow", "water-glow");
+    shape10.classList.remove("sun-glow", "wind-glow", "water-glow");
+    
+    // DOESN'T WORK
+    // for (i = 0; i < sunGlow.length; i += 1) {
+    //     sunGlow[i].classList.remove("sun-glow");
+    // }
+    // for (i = 0; i < windGlow.length; i += 1) {
+    //     windGlow[i].classList.remove("sun-glow");
+    // }
+    // for (i = 0; i < waterGlow.length; i += 1) {
+    //     waterGlow[i].classList.remove("sun-glow");
+    // }
     setTimeout(function() {                     
         backBtn.classList.remove("sun-back-btn", "wind-back-btn", "water-back-btn");    // so color stays until button disappears
         // so doesn't interfere with clicking on words

@@ -148,14 +148,54 @@ html body {                     /* Bootstrap defaults to white background unless
 
 /* indicate clickable shapes */
 .sun-glow {
-    border: 5px solid black;
-    /* width: 150px;
-    height: 150px;
-    background-color: #fff;
-  
-    box-shadow: 120px 80px 40px 20px #FC9700; */
-    /* in order: x offset, y offset, blur size, spread size, color */
-    /* blur size and spread size are optional (they default to 0) */
+    animation-name: sun-glow;
+    animation-duration: 2500ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes sun-glow {
+    0%      {stroke: #000000}
+    50%     {stroke: #FC9700}
+    100%    {stroke: #000000}
+}
+
+.wind-glow {
+    animation-name: wind-glow;
+    animation-duration: 2500ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes wind-glow {
+    0%      {stroke: #000000}
+    50%     {stroke: #E5E5E5}
+    100%    {stroke: #000000}
+}
+
+.water-glow {
+    animation-name: water-glow;
+    animation-duration: 2500ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes water-glow {
+    0%      {stroke: #000000}
+    50%     {stroke: #46A6FF}
+    100%    {stroke: #000000}
+}
+
+.what-can-help:hover {
+    color: #ffa800;
+    animation-name: what-can-help-hover;
+    animation-duration: 250ms;
+    animation-timing-function: ease-in;
+}
+
+@keyframes what-can-help-hover {
+    0%    {color: #FFC700}
+    100%  {color: #ffa800}
 }
 
 /* Back button */
