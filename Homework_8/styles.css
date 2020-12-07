@@ -146,44 +146,48 @@ html body {                     /* Bootstrap defaults to white background unless
     margin-left: 90%;
 }
 
+
+
 /* indicate clickable shapes */
 .sun-glow {
     animation-name: sun-glow;
     animation-duration: 2500ms;
+    animation-delay: 2000ms;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 }
 
 @keyframes sun-glow {
-    0%      {stroke: #000000}
-    50%     {stroke: #FC9700}
-    100%    {stroke: #000000}
+    0%      {stroke: #FC9700; stroke-width: 5;}
+    100%    {stroke: #FC9700; stroke-width: 5;}
 }
 
 .wind-glow {
     animation-name: wind-glow;
+    animation-delay: 2000ms;
     animation-duration: 2500ms;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 }
 
 @keyframes wind-glow {
-    0%      {stroke: #000000}
-    50%     {stroke: #E5E5E5}
-    100%    {stroke: #000000}
+    0%      {stroke: #E5E5E5; stroke-width: 5;}
+    50%      {stroke: #000000; stroke-width: 3;}
+    100%    {stroke: #E5E5E5; stroke-width: 5;}
 }
 
 .water-glow {
     animation-name: water-glow;
+    animation-delay: 2000ms;
     animation-duration: 2500ms;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 }
 
 @keyframes water-glow {
-    0%      {stroke: #000000}
-    50%     {stroke: #46A6FF}
-    100%    {stroke: #000000}
+    0%      {stroke: #46A6FF; stroke-width: 5;}
+    50%      {stroke: #000000; stroke-width: 3;}
+    100%    {stroke: #46A6FF; stroke-width: 5;}
 }
 
 .what-can-help:hover {
