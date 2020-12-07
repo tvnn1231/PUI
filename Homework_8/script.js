@@ -45,7 +45,7 @@ let waterSum = document.getElementById("water-summary");
 let lightbulbtl = gsap.timeline({paused: true});
 
 lightbulbtl
-.to(lightbulb, 1, {x: "+=0", y: "-=230", scale: 1.2, transformOrigin: "50%, 50%"}, 0)
+.to(lightbulb, 1, {x: "+=0", y: "-=190", scale: 1.2, transformOrigin: "50%, 50%"}, 0)
 .to(initialH1, 1, {css: {opacity: 0}}, 0)
 .to(initialP, 1, {css: {opacity: 0}}, 0)
 .to(clickOnLightbulb, 1, {css: {opacity: 0}}, 0)
@@ -67,6 +67,9 @@ function hidePipes() {
 // lightbulb moves up, pipes come in, other elements disappear
 lightbulb.onclick = function(){
     lightbulbtl.play();
+    setTimeout(function() {                                   // so doesn't interfere with clicking on words
+        clickOnLightbulb.style.display = "none";
+    }, 1000)               
     setTimeout(showPipes, 1000);
 
     // pipeElements.style.display = "block";
@@ -189,6 +192,7 @@ function viewport900() {
 }
 
 
+
 for (i = 0; i < sunClick.length; i += 1) {
     sunClick[i].onclick = function() {
         suntl.play();
@@ -199,14 +203,18 @@ for (i = 0; i < sunClick.length; i += 1) {
             shape = shape8;
             id = "#sun8";
             setModalAttributes();
+            shape.classList.add("sun-glow");
             shape = shape10;
             id = "#sun10";
+            shape.classList.add("sun-glow");
             setModalAttributes();
             shape = shape7;
             id = "#sun7";
+            shape.classList.add("sun-glow");
             setModalAttributes();
             shape = shape9;
             id = "#sun9";
+            shape.classList.add("sun-glow");
             setModalAttributes();
             
             // prevent pipes from showing up
@@ -405,8 +413,16 @@ backBtn.onclick = function() {
     backbtntl.reverse();
     titletl.reverse();
     sumtl.reverse();
-    setTimeout(function() {                     // so color stays until button disappears
-        backBtn.classList.remove("sun-back-btn", "wind-back-btn", "water-back-btn");
+    setTimeout(function() {                     
+        backBtn.classList.remove("sun-back-btn", "wind-back-btn", "water-back-btn");    // so color stays until button disappears
+        // so doesn't interfere with clicking on words
+        backBtn.style.display = "none";
+        sunTitle.style.display = "none";
+        windTitle.style.display = "none";
+        waterTitle.style.display = "none";
+        sunSum.style.display = "none";
+        windSum.style.display = "none";
+        waterSum.style.display = "none";
     }, 3000)
     // setTimeout(function() {                 
     //     mainPipes.style.display = "block";

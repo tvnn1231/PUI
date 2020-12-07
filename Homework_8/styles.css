@@ -12,12 +12,12 @@ html body {                     /* Bootstrap defaults to white background unless
 }
 
 #initial-home-body {            /* so it doesn't scroll */
-    /* position: absolute;
+    position: absolute;
     top: 0px;
     left: 0px;
     bottom: 0px;
     right: 0px;
-    overflow: hidden; */
+    overflow: hidden;
 }
 
 /* LANDING PAGE */
@@ -59,7 +59,7 @@ html body {                     /* Bootstrap defaults to white background unless
     color: #ffffff;
     font-size: 1.5em;
     text-align: center;
-    margin-top: 4%;
+    margin-top: 6%;
     margin-bottom: 4%;
 }
 
@@ -81,16 +81,21 @@ html body {                     /* Bootstrap defaults to white background unless
 }
 
 #bulb-and-pipes {
-    z-index: 1;                 /* summary was on top of water-click so couldn't click */
-    display: block;
+    z-index: 2;                 /* summary was on top of water-click so couldn't click */
+    /* display: block; */
     margin: 3% auto 0 auto;
+    /* height: 550px; */
+    height: 70%;
+    width: 100%;                /* so wind doesn't get cut off */
+    padding: 0 10%;             /* so the sides don't get cut off when resizing */
 }
+
 
 #click-on-lightbulb {
     z-index: 1;
     display: block;
     position: relative;
-    bottom: 225px;
+    bottom: 250px;
 }
 
 .pipes {
@@ -137,14 +142,20 @@ html body {                     /* Bootstrap defaults to white background unless
 
 }
 
-#bulb-and-pipes {
-    height: 500px;
-    width: 100%;                /* so wind doesn't get cut off */
-    padding: 0 10%;             /* so the sides don't get cut off when resizing */
-}
-
 #modal-close {
     margin-left: 90%;
+}
+
+/* indicate clickable shapes */
+.sun-glow {
+    border: 5px solid black;
+    /* width: 150px;
+    height: 150px;
+    background-color: #fff;
+  
+    box-shadow: 120px 80px 40px 20px #FC9700; */
+    /* in order: x offset, y offset, blur size, spread size, color */
+    /* blur size and spread size are optional (they default to 0) */
 }
 
 /* Back button */
@@ -227,7 +238,7 @@ html body {                     /* Bootstrap defaults to white background unless
     #sun-summary,
     #wind-summary,
     #water-summary {
-        bottom: 85%;
+        bottom: 80%;
     }
     /* #sun-sum-p,
     #wind-sum-p,
