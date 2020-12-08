@@ -1,8 +1,10 @@
+// ******************* MAIN PAGE *******************
 // lets
 let initialHomeBody = document.getElementById("initial-home-body");
 let lightbulb = document.getElementById("bulb-and-pipes");
 let initialH1 = document.getElementById("initial-h1");
 let initialP = document.getElementById("initial-p");
+let backToLanding = document.getElementById("back-to-landing");
 let clickOnLightbulb = document.getElementById("click-on-lightbulb");
 // let mainPipes = document.getElementById("main-pipes");
 let pipeElements = document.getElementsByClassName("pipes");
@@ -68,6 +70,7 @@ function hidePipes() {
 lightbulb.onclick = function(){
     lightbulbtl.play();
     lightbulb.setAttribute("picture", "lightbulb");
+    backToLanding.href = "initial_home.html"                  // back button goes back to "Click on lightbulb" page
     setTimeout(function() {                                   // so doesn't interfere with clicking on words
         clickOnLightbulb.style.display = "none";
     }, 1000)               
@@ -236,6 +239,7 @@ for (i = 0; i < sunClick.length; i += 1) {
     sunClick[i].onclick = function() {
         suntl.play();
         lightbulb.setAttribute("picture", "sun");
+        backToLanding.style.display = "none";
         if (lightbulb.getAttribute("picture") === "sun") {
 
             // set modals and show clickable
@@ -304,6 +308,7 @@ for (i = 0; i < windClick.length; i += 1) {
         windtl.play();
         lightbulb.style.width = "100%";         // so sides don't get cut off
         lightbulb.setAttribute("picture", "wind");
+        backToLanding.style.display = "none";
 
         if (lightbulb.getAttribute("picture") === "wind") {
 
@@ -423,6 +428,7 @@ for (i = 0; i < waterClick.length; i += 1) {
     waterClick[i].onclick = function() {
         watertl.play();
         lightbulb.setAttribute("picture", "water");
+        backToLanding.style.display = "none";
         if (lightbulb.getAttribute("picture") === "water") {
 
             // set modals and show clickable
@@ -522,6 +528,7 @@ backBtn.onclick = function() {
     backbtntl.reverse();
     titletl.reverse();
     sumtl.reverse();
+    backToLanding.style.display = "inline";
     lightbulb.setAttribute("picture", "lightbulb");
     for (i = 0; i < sunShapes.length; i += 1) {
         sunShapes[i].classList.remove("sun-glow");

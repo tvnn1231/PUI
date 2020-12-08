@@ -22,17 +22,43 @@ html body {                     /* Bootstrap defaults to white background unless
 
 /* LANDING PAGE */
 
-.landing-h1 {
-    font-size: 2.5em;
-    margin-top: 20%;
-    margin-bottom: 15%;
-}
-
 .landing-body {
     width: 50%;
     margin: 0 auto;
     text-align: center;
     color: #ffffff;
+    background-color: #000000;            /* so it starts black for the delay */
+    /* name duration delay iteration-count fill-mode */
+    animation: landing-body 1.5s 1s 1 forwards;           /* forwards so it stays blue after animation ends */    
+}
+
+@keyframes landing-body {
+    0%      {background-color: #000000;}
+    100%    {background-color: #02004B;}
+}
+
+.landing-h1 {
+    font-size: 2.5em;
+    margin-top: 40%;
+    margin-bottom: 15%;
+    z-index: 2;
+    animation: landing-h1 1.5s linear 1s 1 forwards;
+}
+
+@keyframes landing-h1 {
+    0%      {margin-top: 40%;}
+    100%    {margin-top: 20%;}
+}
+
+#landing-p,
+#what-can-help {
+    opacity: 0;
+    animation: landing-appear 1s 2.5s 1 forwards;
+}
+
+@keyframes landing-appear {
+    0%      {opacity: 0;}
+    100%    {opacity: 1;}
 }
 
 .what-can-help {
@@ -54,6 +80,25 @@ html body {                     /* Bootstrap defaults to white background unless
 }
 
 /* INITIAL HOME */
+
+#back-to-landing {
+    color: #FFFFFF;
+    float: left;
+    padding: 1%;
+    animation-name: back-to-landing-hover;
+    animation-duration: 250ms;
+    animation-timing-function: ease-in;
+}
+
+#back-to-landing:hover {
+    text-decoration: none;
+    color: #E5E5E5;
+}
+
+@keyframes back-to-landing-hover {
+    0%    {color: #FFFFFF}
+    100%  {color: #E5E5E5}
+}
 
 .initial-h1 {
     color: #ffffff;
