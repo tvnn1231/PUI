@@ -159,7 +159,19 @@ html body {                     /* Bootstrap defaults to white background unless
 
 @keyframes sun-glow {
     0%      {stroke: #FC9700; stroke-width: 5;}
+    50%      {stroke: #000000; stroke-width: 3;}
     100%    {stroke: #FC9700; stroke-width: 5;}
+}
+
+.sun-hover {
+    animation-name: sun-hover;
+    animation-duration: 2500ms;
+    animation-iteration-count: infinite;
+}
+
+@keyframes sun-hover {
+    0%      {stroke: #FFD976; stroke-width: 5;}
+    100%    {stroke: #FFD976; stroke-width: 5;}
 }
 
 .wind-glow {
@@ -183,8 +195,8 @@ html body {                     /* Bootstrap defaults to white background unless
 }
 
 @keyframes wind-hover {
-    0%      {stroke: #727272; stroke-width: 5;}
-    100%    {stroke: #727272; stroke-width: 5;}
+    0%      {stroke: #71B637; stroke-width: 5;}
+    100%    {stroke: #71B637; stroke-width: 5;}
 }
 
 .water-glow {
@@ -199,6 +211,17 @@ html body {                     /* Bootstrap defaults to white background unless
     0%      {stroke: #46A6FF; stroke-width: 5;}
     50%      {stroke: #000000; stroke-width: 3;}
     100%    {stroke: #46A6FF; stroke-width: 5;}
+}
+
+.water-hover {
+    animation-name: water-hover;
+    animation-duration: 2500ms;
+    animation-iteration-count: infinite;
+}
+
+@keyframes water-hover {
+    0%      {stroke: #1313EF; stroke-width: 5;}
+    100%    {stroke: #1313EF; stroke-width: 5;}
 }
 
 .what-can-help:hover {

@@ -67,6 +67,7 @@ function hidePipes() {
 // lightbulb moves up, pipes come in, other elements disappear
 lightbulb.onclick = function(){
     lightbulbtl.play();
+    lightbulb.setAttribute("picture", "lightbulb");
     setTimeout(function() {                                   // so doesn't interfere with clicking on words
         clickOnLightbulb.style.display = "none";
     }, 1000)               
@@ -82,6 +83,11 @@ function setModalAttributes() {
     shape.setAttribute("type", "button");
     shape.setAttribute("data-toggle", "modal");
     shape.setAttribute("data-target", id);
+}
+
+// remove modal attributes for shapes so don't show up if click on lightbulb after going back
+function removeModalAttributes(shape) {
+    shape.removeAttribute("data-target");
 }
 
 // display back button
@@ -195,6 +201,37 @@ let sunShapes = document.getElementsByClassName("sun-shape");
 let windShapes = document.getElementsByClassName("wind-shape");
 let waterShapes = document.getElementsByClassName("water-shape");
 
+function sunHover(sunHoverShape) {
+    sunHoverShape.onmouseenter = function() {
+        sunHoverShape.classList.remove("sun-glow");
+        sunHoverShape.classList.add("sun-hover");
+    };
+    sunHoverShape.onmouseleave = function() {
+        sunHoverShape.classList.add("sun-glow");
+        sunHoverShape.classList.remove("sun-hover");
+    }
+}
+
+// so no shapes glow or animate when go back to lightbulb
+function stopHover(hoverShape) {
+    hoverShape.onmouseenter = function() {
+        hoverShape.classList.remove("sun-glow");
+        hoverShape.classList.remove("sun-hover");
+        hoverShape.classList.remove("wind-glow");
+        hoverShape.classList.remove("wind-hover");        
+        hoverShape.classList.remove("water-glow");
+        hoverShape.classList.remove("water-hover");
+    }
+    hoverShape.onmouseleave = function() {
+        hoverShape.classList.remove("sun-glow");
+        hoverShape.classList.remove("sun-hover");
+        hoverShape.classList.remove("wind-glow");
+        hoverShape.classList.remove("wind-hover");        
+        hoverShape.classList.remove("water-glow");
+        hoverShape.classList.remove("water-hover");
+    }
+} 
+
 for (i = 0; i < sunClick.length; i += 1) {
     sunClick[i].onclick = function() {
         suntl.play();
@@ -209,6 +246,11 @@ for (i = 0; i < sunClick.length; i += 1) {
                 setModalAttributes();
                 shape.classList.add("sun-glow");
             }
+
+            sunHover(shape7);
+            sunHover(shape8);
+            sunHover(shape9);
+            sunHover(shape10);
             
             // prevent pipes from showing up
             lightbulb.onclick = hidePipes();
@@ -363,6 +405,20 @@ watertl
 
 // 1xy, 2xy, 3xy, 4xy, 9x
 
+// Hover on water shapes
+let waterBigGroup = document.getElementsByClassName("water-big-group");
+let waterSmallGroup = document.getElementsByClassName("water-small-group");
+function waterHover(waterHoverShape) {
+    waterHoverShape.onmouseenter = function() {
+        waterHoverShape.classList.remove("water-glow");
+        waterHoverShape.classList.add("water-hover");
+    };
+    waterHoverShape.onmouseleave = function() {
+        waterHoverShape.classList.add("water-glow");
+        waterHoverShape.classList.remove("water-hover");
+    }
+}
+
 for (i = 0; i < waterClick.length; i += 1) {
     waterClick[i].onclick = function() {
         watertl.play();
@@ -377,7 +433,41 @@ for (i = 0; i < waterClick.length; i += 1) {
                 setModalAttributes();
                 shape.classList.add("water-glow");
             }
+
+            waterHover(shape13);
             
+            // hover over big group
+            for (j = 0; j < waterBigGroup.length; j += 1) {
+                waterBigGroup[j].onmouseenter = function() {
+                    for (k = 0; k < waterBigGroup.length; k += 1) {
+                        waterBigGroup[k].classList.remove("water-glow");
+                        waterBigGroup[k].classList.add("water-hover");
+                    }
+                }
+                waterBigGroup[j].onmouseleave = function() {
+                    for (k = 0; k < waterBigGroup.length; k += 1) {
+                        waterBigGroup[k].classList.add("water-glow");
+                        waterBigGroup[k].classList.remove("water-hover");
+                    }
+                }
+            }
+
+            // hover over small group
+            for (j = 0; j < waterSmallGroup.length; j += 1) {
+                waterSmallGroup[j].onmouseenter = function() {
+                    for (k = 0; k < waterSmallGroup.length; k += 1) {
+                        waterSmallGroup[k].classList.remove("water-glow");
+                        waterSmallGroup[k].classList.add("water-hover");
+                    }
+                }
+                waterSmallGroup[j].onmouseleave = function() {
+                    for (k = 0; k < waterSmallGroup.length; k += 1) {
+                        waterSmallGroup[k].classList.add("water-glow");
+                        waterSmallGroup[k].classList.remove("water-hover");
+                    }
+                }
+            }
+
             // prevent pipes from showing up
             lightbulb.onclick = hidePipes();
 
@@ -432,14 +522,21 @@ backBtn.onclick = function() {
     backbtntl.reverse();
     titletl.reverse();
     sumtl.reverse();
+    lightbulb.setAttribute("picture", "lightbulb");
     for (i = 0; i < sunShapes.length; i += 1) {
         sunShapes[i].classList.remove("sun-glow");
+        stopHover(sunShapes[i]);
+        removeModalAttributes(sunShapes[i]);
     }
     for (i = 0; i < windShapes.length; i += 1) {
         windShapes[i].classList.remove("wind-glow");
+        stopHover(windShapes[i]);
+        removeModalAttributes(windShapes[i]);
     }
     for (i = 0; i < waterShapes.length; i += 1) {
         waterShapes[i].classList.remove("water-glow");
+        stopHover(waterShapes[i]);
+        removeModalAttributes(waterShapes[i]);
     }
 
     // DOESN'T WORK
