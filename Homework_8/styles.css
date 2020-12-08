@@ -152,7 +152,7 @@ html body {                     /* Bootstrap defaults to white background unless
 .sun-glow {
     animation-name: sun-glow;
     animation-duration: 2500ms;
-    animation-delay: 2000ms;
+    animation-delay: 1000ms;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 }
@@ -164,7 +164,7 @@ html body {                     /* Bootstrap defaults to white background unless
 
 .wind-glow {
     animation-name: wind-glow;
-    animation-delay: 2000ms;
+    animation-delay: 1000ms;
     animation-duration: 2500ms;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
@@ -176,9 +176,20 @@ html body {                     /* Bootstrap defaults to white background unless
     100%    {stroke: #E5E5E5; stroke-width: 5;}
 }
 
+.wind-hover {
+    animation-name: wind-hover;
+    animation-duration: 2500ms;
+    animation-iteration-count: infinite;
+}
+
+@keyframes wind-hover {
+    0%      {stroke: #727272; stroke-width: 5;}
+    100%    {stroke: #727272; stroke-width: 5;}
+}
+
 .water-glow {
     animation-name: water-glow;
-    animation-delay: 2000ms;
+    animation-delay: 1000ms;
     animation-duration: 2500ms;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;

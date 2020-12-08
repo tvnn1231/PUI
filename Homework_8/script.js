@@ -244,6 +244,18 @@ windtl
 
 // 5xy, 7xy, 8xy, 9xy, 11xy
 
+// Hover on wind shapes
+let windGroup = document.getElementsByClassName("wind-group");
+function windHover(windHoverShape) {
+    windHoverShape.onmouseenter = function() {
+        windHoverShape.classList.remove("wind-glow");
+        windHoverShape.classList.add("wind-hover");
+    };
+    windHoverShape.onmouseleave = function() {
+        windHoverShape.classList.add("wind-glow");
+        windHoverShape.classList.remove("wind-hover");
+    }
+}
 
 for (i = 0; i < windClick.length; i += 1) {
     windClick[i].onclick = function() {
@@ -260,6 +272,25 @@ for (i = 0; i < windClick.length; i += 1) {
                 id = "#wind" + str.slice(5);
                 setModalAttributes();
                 shape.classList.add("wind-glow");
+            }
+
+            windHover(shape6);
+            windHover(shape3);
+
+            // hover over group
+            for (j = 0; j < windGroup.length; j += 1) {
+                windGroup[j].onmouseenter = function() {
+                    for (k = 0; k < windGroup.length; k += 1) {
+                        windGroup[k].classList.remove("wind-glow");
+                        windGroup[k].classList.add("wind-hover");
+                    }
+                }
+                windGroup[j].onmouseleave = function() {
+                    for (k = 0; k < windGroup.length; k += 1) {
+                        windGroup[k].classList.add("wind-glow");
+                        windGroup[k].classList.remove("wind-hover");
+                    }
+                }
             }
 
             
