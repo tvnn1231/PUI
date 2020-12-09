@@ -47,7 +47,7 @@ let waterSum = document.getElementById("water-summary");
 let lightbulbtl = gsap.timeline({paused: true});
 
 lightbulbtl
-.to(lightbulb, 1, {x: "+=0", y: "-=200", scale: 1.2, transformOrigin: "50%, 50%"}, 0)
+.to(lightbulb, 1, {x: "+=0", y: "-=38%" /*"-=200"*/, scale: 1.2, transformOrigin: "50%, 50%"}, 0)
 .to(initialH1, 1, {css: {opacity: 0}}, 0)
 .to(initialP, 1, {css: {opacity: 0}}, 0)
 .to(clickOnLightbulb, 1, {css: {opacity: 0}}, 0)
