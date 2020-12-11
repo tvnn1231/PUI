@@ -1,0 +1,40 @@
+/* indicate clickable shapes */
+
+.wind-glow {
+    animation-name: wind-glow;
+    animation-delay: 1000ms;
+    animation-duration: 2500ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes wind-glow {
+    0%      {stroke: #E5E5E5; stroke-width: 5;}
+    50%      {stroke: #000000; stroke-width: 3;}
+    100%    {stroke: #E5E5E5; stroke-width: 5;}
+}
+
+/* animation when hover over clickable shape */
+
+.wind-hover {
+    animation-name: wind-hover;
+    animation-duration: 2500ms;
+    animation-iteration-count: infinite;
+}
+
+@keyframes wind-hover {
+    0%      {stroke: #71B637; stroke-width: 5;}
+    100%    {stroke: #71B637; stroke-width: 5;}
+}
+
+/* back button */
+
+.wind-back-btn {
+    background-color: #E5E5E5;
+    color: #727272;
+}
+
+.wind-back-btn:hover {
+    background-color: #E5E5E5;
+    color: #000000;
+}

@@ -162,8 +162,7 @@ html body {                     /* Bootstrap defaults to white background unless
     bottom: 250px; */
 }
 
-/* media query #main-pipes bottom? */
-
+/* pointer cursor on hover */
 #shape1:hover,
 #shape2:hover,
 #shape3:hover,
@@ -188,97 +187,6 @@ html body {                     /* Bootstrap defaults to white background unless
     cursor: pointer;
 }
 
-#initial-home-bulb {
-
-    /* NO SCROLL */
-    height: 300px;
-
-    /* margin: 0 auto; */
-
-}
-
-#modal-close {
-    margin-left: 90%;
-}
-
-
-
-/* indicate clickable shapes */
-.sun-glow {
-    animation-name: sun-glow;
-    animation-duration: 2500ms;
-    animation-delay: 1000ms;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-}
-
-@keyframes sun-glow {
-    0%      {stroke: #FC9700; stroke-width: 5;}
-    50%      {stroke: #000000; stroke-width: 3;}
-    100%    {stroke: #FC9700; stroke-width: 5;}
-}
-
-.sun-hover {
-    animation-name: sun-hover;
-    animation-duration: 2500ms;
-    animation-iteration-count: infinite;
-}
-
-@keyframes sun-hover {
-    0%      {stroke: #FFD976; stroke-width: 5;}
-    100%    {stroke: #FFD976; stroke-width: 5;}
-}
-
-.wind-glow {
-    animation-name: wind-glow;
-    animation-delay: 1000ms;
-    animation-duration: 2500ms;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-}
-
-@keyframes wind-glow {
-    0%      {stroke: #E5E5E5; stroke-width: 5;}
-    50%      {stroke: #000000; stroke-width: 3;}
-    100%    {stroke: #E5E5E5; stroke-width: 5;}
-}
-
-.wind-hover {
-    animation-name: wind-hover;
-    animation-duration: 2500ms;
-    animation-iteration-count: infinite;
-}
-
-@keyframes wind-hover {
-    0%      {stroke: #71B637; stroke-width: 5;}
-    100%    {stroke: #71B637; stroke-width: 5;}
-}
-
-.water-glow {
-    animation-name: water-glow;
-    animation-delay: 1000ms;
-    animation-duration: 2500ms;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-}
-
-@keyframes water-glow {
-    0%      {stroke: #46A6FF; stroke-width: 5;}
-    50%      {stroke: #000000; stroke-width: 3;}
-    100%    {stroke: #46A6FF; stroke-width: 5;}
-}
-
-.water-hover {
-    animation-name: water-hover;
-    animation-duration: 2500ms;
-    animation-iteration-count: infinite;
-}
-
-@keyframes water-hover {
-    0%      {stroke: #1313EF; stroke-width: 5;}
-    100%    {stroke: #1313EF; stroke-width: 5;}
-}
-
 .what-can-help:hover {
     color: #ffa800;
     animation-name: what-can-help-hover;
@@ -301,38 +209,6 @@ html body {                     /* Bootstrap defaults to white background unless
     border-radius: 0;
     font-family: 'Oswald', 'sans-serif';
     font-size: .8em;
-}
-
-/* Back button colors */
-
-.sun-back-btn {
-    background-color: #FFF500;
-    color: #909090;
-}
-
-.sun-back-btn:hover {
-    background-color: #FFF500;
-    color: #000000;
-}
-
-.wind-back-btn {
-    background-color: #E5E5E5;
-    color: #727272;
-}
-
-.wind-back-btn:hover {
-    background-color: #E5E5E5;
-    color: #000000;
-}
-
-.water-back-btn {
-    background-color: #46A6FF;
-    color: #E5E5E5;
-}
-
-.water-back-btn:hover {
-    background-color: #46A6FF;
-    color: #000000;
 }
 
 /* Titles */
@@ -361,6 +237,12 @@ html body {                     /* Bootstrap defaults to white background unless
     display: none;
     color: #000000;
     opacity: 0;
+}
+
+/* Modal */
+
+#modal-close {
+    margin-left: 90%;
 }
 
 /* MEDIA QUERIES FOR SUMMARIES */

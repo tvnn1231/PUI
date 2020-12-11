@@ -1,12 +1,10 @@
-// ******************* MAIN PAGE *******************
-// lets
+// initial home
 let initialHomeBody = document.getElementById("initial-home-body");
 let lightbulb = document.getElementById("bulb-and-pipes");
 let initialH1 = document.getElementById("initial-h1");
 let initialP = document.getElementById("initial-p");
 let backToLanding = document.getElementById("back-to-landing");
 let clickOnLightbulb = document.getElementById("click-on-lightbulb");
-// let mainPipes = document.getElementById("main-pipes");
 let pipeElements = document.getElementsByClassName("pipes");
 let backBtn = document.getElementById("back-btn");
 

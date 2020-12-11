@@ -1,0 +1,39 @@
+/* indicate clickable shapes */
+.sun-glow {
+    animation-name: sun-glow;
+    animation-duration: 2500ms;
+    animation-delay: 1000ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes sun-glow {
+    0%      {stroke: #FC9700; stroke-width: 5;}
+    50%      {stroke: #000000; stroke-width: 3;}
+    100%    {stroke: #FC9700; stroke-width: 5;}
+}
+
+/* animation when hover over clickable shape */
+
+.sun-hover {
+    animation-name: sun-hover;
+    animation-duration: 2500ms;
+    animation-iteration-count: infinite;
+}
+
+@keyframes sun-hover {
+    0%      {stroke: #FFD976; stroke-width: 5;}
+    100%    {stroke: #FFD976; stroke-width: 5;}
+}
+
+/* back button */
+
+.sun-back-btn {
+    background-color: #FFF500;
+    color: #909090;
+}
+
+.sun-back-btn:hover {
+    background-color: #FFF500;
+    color: #000000;
+}
