@@ -18,6 +18,13 @@ html body {                     /* Bootstrap defaults to white background unless
     bottom: 0px;
     right: 0px;
     overflow: hidden;
+    /* name duration delay iteration-count fill-mode */
+    animation: home-body 1s 0s 1 forwards;
+}
+
+@keyframes home-body {
+    0%      {opacity: 0;}
+    100%    {opacity: 1;}
 }
 
 /* LANDING PAGE */
