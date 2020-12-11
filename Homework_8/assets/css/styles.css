@@ -135,13 +135,19 @@ html body {                     /* Bootstrap defaults to white background unless
     margin: 0 auto 2% auto;
 }
 
+#svg-div {
+    height: auto;
+    width: 45%;
+    margin: 0 auto;
+}
+
 #bulb-and-pipes {
     z-index: 2;                 /* summary was on top of water-click so couldn't click */
     /* display: block; */
     margin: 3% auto 0 auto;
     /* height: 550px; */
     height: 70%;
-    width: 100%;                /* so wind doesn't get cut off */
+    width: 100%;                /* so wind doesn't get cut off*/
     padding: 0 10%;             /* so the sides don't get cut off when resizing */
 }
 
@@ -255,11 +261,10 @@ html body {                     /* Bootstrap defaults to white background unless
     #water-summary {
         bottom: 80%;
     }
-    /* #sun-sum-p,
-    #wind-sum-p,
-    #water-sum-p {
-        font-size: .8em;
-    } */
+
+    .landing-body {
+        width: 75%;
+    }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -267,21 +272,19 @@ html body {                     /* Bootstrap defaults to white background unless
     #sun-summary,
     #wind-summary,
     #water-summary {
-        bottom: 80%;
+        bottom: 90%;
     }
-    /* #sun-sum-p,
-    #wind-sum-p,
-    #water-sum-p {
-        font-size: .9em;
-    } */
+
+    .landing-body {
+        width: 65%;
+    }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media screen and (min-width: 992px) {
-    #sun-sum-p {
-        font-size: 1em;
-    }
+
 }
+
 
 /* // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) { ... } */
