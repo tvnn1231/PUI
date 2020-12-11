@@ -7,24 +7,8 @@ html {
     max-height: 100vh;
 }
 
-html body {                     /* Bootstrap defaults to white background unless css is specified like this */
+html body {                         /* Bootstrap defaults to white background unless css is specified like this */
     background-color: #02004B;
-}
-
-#initial-home-body {            /* so it doesn't scroll */
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-    right: 0px;
-    overflow: hidden;
-    /* name duration delay iteration-count fill-mode */
-    animation: home-body 1s 0s 1 forwards;
-}
-
-@keyframes home-body {
-    0%      {opacity: 0;}
-    100%    {opacity: 1;}
 }
 
 /* LANDING PAGE */
@@ -34,9 +18,9 @@ html body {                     /* Bootstrap defaults to white background unless
     margin: 0 auto;
     text-align: center;
     color: #ffffff;
-    background-color: #000000;            /* so it starts black for the delay */
-    /* name duration delay iteration-count fill-mode */
+    background-color: #000000;                          /* so it starts black for the delay */
     animation: landing-body 1.5s 1s 1 forwards;           /* forwards so it stays blue after animation ends */    
+        /* name duration delay iteration-count fill-mode */
 }
 
 @keyframes landing-body {
@@ -88,6 +72,22 @@ html body {                     /* Bootstrap defaults to white background unless
 
 /* INITIAL HOME */
 
+#initial-home-body {                /* so it doesn't scroll */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    overflow: hidden;
+    animation: home-body 1s 0s 1 forwards;
+        /* name duration delay iteration-count fill-mode */
+}
+
+@keyframes home-body {
+    0%      {opacity: 0;}
+    100%    {opacity: 1;}
+}
+
 #back-to-landing {
     color: #FFFFFF;
     float: left;
@@ -127,7 +127,7 @@ html body {                     /* Bootstrap defaults to white background unless
     margin: 0 auto;
     text-align: center;
     color: #ffffff;
-    padding: 0 15px;            /* so there's some space between the edges when resizing */
+    padding: 0 15px;                    /* so there's some space between the edges when resizing */
 }
 
 #initial-home-bulb {
@@ -143,9 +143,7 @@ html body {                     /* Bootstrap defaults to white background unless
 
 #bulb-and-pipes {
     z-index: 2;                 /* summary was on top of water-click so couldn't click */
-    /* display: block; */
     margin: 3% auto 0 auto;
-    /* height: 550px; */
     height: 70%;
     width: 100%;                /* so wind doesn't get cut off*/
     padding: 0 10%;             /* so the sides don't get cut off when resizing */
@@ -161,11 +159,6 @@ html body {                     /* Bootstrap defaults to white background unless
 
 .pipes {
     display: none;
-    /* margin: 0 auto;
-    opacity: 0;
-    height: 360px;
-    position: relative;
-    bottom: 250px; */
 }
 
 /* pointer cursor on hover */
@@ -193,17 +186,8 @@ html body {                     /* Bootstrap defaults to white background unless
     cursor: pointer;
 }
 
-.what-can-help:hover {
-    color: #ffa800;
-    animation-name: what-can-help-hover;
-    animation-duration: 250ms;
-    animation-timing-function: ease-in;
-}
 
-@keyframes what-can-help-hover {
-    0%    {color: #FFC700}
-    100%  {color: #ffa800}
-}
+/* ENERGY SOURCE PAGES */
 
 /* Back button */
 #back-btn {
@@ -251,15 +235,16 @@ html body {                     /* Bootstrap defaults to white background unless
     margin-left: 90%;
 }
 
-/* MEDIA QUERIES FOR SUMMARIES */
 
-/* Small devices (landscape phones, 576px and up) */
+/* MEDIA QUERIES FOR SUMMARIES - based on Bootstrap */
+
+/* small */
 
 @media (min-width: 0px) and (max-width: 767px) {
     #sun-summary,
     #wind-summary,
     #water-summary {
-        bottom: 80%;
+        bottom: 82%;
     }
 
     .landing-body {
@@ -267,24 +252,15 @@ html body {                     /* Bootstrap defaults to white background unless
     }
 }
 
-/* Medium devices (tablets, 768px and up) */
+/* medium */
 @media screen and (min-width: 768px) and (max-width: 991px) {
     #sun-summary,
     #wind-summary,
     #water-summary {
-        bottom: 90%;
+        bottom: 88%;
     }
 
     .landing-body {
         width: 65%;
     }
 }
-
-/* Large devices (desktops, 992px and up) */
-@media screen and (min-width: 992px) {
-
-}
-
-
-/* // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... } */
