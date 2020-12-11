@@ -135,12 +135,6 @@ html body {                         /* Bootstrap defaults to white background un
     margin: 0 auto 2% auto;
 }
 
-#svg-div {
-    height: auto;
-    width: 45%;
-    margin: 0 auto;
-}
-
 #bulb-and-pipes {
     z-index: 2;                 /* summary was on top of water-click so couldn't click */
     margin: 3% auto 0 auto;
@@ -253,11 +247,11 @@ html body {                         /* Bootstrap defaults to white background un
 }
 
 /* medium */
-@media screen and (min-width: 768px) and (max-width: 991px) {
+@media screen and (min-width: 767px) and (max-width: 991px) {
     #sun-summary,
     #wind-summary,
     #water-summary {
-        bottom: 88%;
+        bottom: 80%;
     }
 
     .landing-body {
