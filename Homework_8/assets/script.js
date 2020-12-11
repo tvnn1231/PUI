@@ -8,7 +8,7 @@ let clickOnLightbulb = document.getElementById("click-on-lightbulb");
 let pipeElements = document.getElementsByClassName("pipes");
 let backBtn = document.getElementById("back-btn");
 
-// words and rectangles
+// words and rectangles to click
 let sunClick = document.getElementsByClassName("sun-click");
 let windClick = document.getElementsByClassName("wind-click");
 let waterClick = document.getElementsByClassName("water-click");
@@ -30,12 +30,17 @@ let shape13 = document.getElementById("shape13");
 let shape14 = document.getElementById("shape14");
 let shape15 = document.getElementById("shape15");
 
-// titles
+// shapes that are clickable on each energy source page
+let sunShapes = document.getElementsByClassName("sun-shape");
+let windShapes = document.getElementsByClassName("wind-shape");
+let waterShapes = document.getElementsByClassName("water-shape");
+
+// titles of energy sources
 let sunTitle = document.getElementById("sun-title");
 let windTitle = document.getElementById("wind-title");
 let waterTitle = document.getElementById("water-title");
 
-// summaries
+// summaries of energy sources
 let sunSum = document.getElementById("sun-summary");
 let windSum = document.getElementById("wind-summary");
 let waterSum = document.getElementById("water-summary");
@@ -45,12 +50,13 @@ let waterSum = document.getElementById("water-summary");
 let lightbulbtl = gsap.timeline({paused: true});
 
 lightbulbtl
-.to(lightbulb, 1, {x: "+=0", y: "-=230" /*"-=200"*/, scale: 1.2, transformOrigin: "50%, 50%"}, 0)
+.to(lightbulb, 1, {x: "+=0", y: "-=230", scale: 1.2, transformOrigin: "50%, 50%"}, 0)
 .to(initialH1, 1, {css: {opacity: 0}}, 0)
 .to(initialP, 1, {css: {opacity: 0}}, 0)
 .to(clickOnLightbulb, 1, {css: {opacity: 0}}, 0)
 .to(pipeElements, 1, {css: {opacity: 1}}, 0.5)
 
+// functions to show and hide pipes
 function showPipes() {
     for (i=0;i<pipeElements.length;i+=1){
         pipeElements[i].style.display = 'block';
@@ -63,7 +69,6 @@ function hidePipes() {
     }
 }
 
-
 // lightbulb moves up, pipes come in, other elements disappear
 lightbulb.onclick = function(){
     lightbulbtl.play();
@@ -73,10 +78,9 @@ lightbulb.onclick = function(){
         clickOnLightbulb.style.display = "none";
     }, 1000)               
     setTimeout(showPipes, 1000);
-
-    // pipeElements.style.display = "block";
-    // initialHomeBody.style.height = "100vh";             // otherwise shows up below screen
 }
+
+// FUNCTIONS
 
 // set modal attributes for shapes
 let shape;
@@ -86,12 +90,12 @@ function setModalAttributes() {
     shape.setAttribute("data-target", id);
 }
 
-// remove modal attributes for shapes so don't show up if click on lightbulb after going back
+// remove modal attribute for shapes so they don't show up if click on lightbulb after going back to home
 function removeModalAttributes(shape) {
     shape.removeAttribute("data-target");
 }
 
-// display back button
+// display back button on each energy source page
 let backbtntl = gsap.timeline({paused: true});
 backbtntl
 .to(backBtn, 1.5, {css: {opacity: 1}}, 0);
@@ -104,17 +108,16 @@ function showBackBtn() {
     } else if (lightbulb.getAttribute("picture") === "wind") {
         backBtn.classList.add("wind-back-btn");
     } else if (lightbulb.getAttribute("picture") === "water") {
-        backBtn.classList.add("water-back-btn");                // DEBUG: button was gray not blue, had backbtn instead of backBtn (used inspect to find error "backbtn not defined")
+        backBtn.classList.add("water-back-btn");
     }
 }
 
-// display titles
+// display titles of each energy source
 let titletl = gsap.timeline({paused: true});
 titletl
 .to(sunTitle, 1.5, {css: {opacity: 1}}, 0)
 .to(windTitle, 1.5, {css: {opacity: 1}}, 0)
 .to(waterTitle, 1.5, {css: {opacity: 1}}, 0);
-
 
 function showTitle() {
     if (lightbulb.getAttribute("picture") === "sun") {
@@ -135,14 +138,16 @@ function showTitle() {
     }
 }
 
-// display summaries
+// display summaries of each energy source
+
+// animate opacity of summaries
 let sumtl = gsap.timeline({paused: true});
 sumtl
 .to(sunSum, 1.5, {css: {opacity: 1}}, 0)
 .to(windSum, 1.5, {css: {opacity: 1}}, 0)
 .to(waterSum, 1.5, {css: {opacity: 1}}, 0);
 
-
+// function to show summary depending on which source was chosen
 function showSum() {
     if (lightbulb.getAttribute("picture") === "sun") {
         sunSum.style.display = "block";
@@ -162,7 +167,29 @@ function showSum() {
     }
 }
 
+// function so that no shapes glow or animate when go back to lightbulb on home page
+function stopHover(hoverShape) {
+    hoverShape.onmouseenter = function() {
+        hoverShape.classList.remove("sun-glow");
+        hoverShape.classList.remove("sun-hover");
+        hoverShape.classList.remove("wind-glow");
+        hoverShape.classList.remove("wind-hover");        
+        hoverShape.classList.remove("water-glow");
+        hoverShape.classList.remove("water-hover");
+    }
+    hoverShape.onmouseleave = function() {
+        hoverShape.classList.remove("sun-glow");
+        hoverShape.classList.remove("sun-hover");
+        hoverShape.classList.remove("wind-glow");
+        hoverShape.classList.remove("wind-hover");        
+        hoverShape.classList.remove("water-glow");
+        hoverShape.classList.remove("water-hover");
+    }
+} 
+
 // SUN ANIMATION
+
+// timeline to animate shapes into position
 let suntl = gsap.timeline({paused: true});
 
 suntl
@@ -183,25 +210,7 @@ suntl
 .to(shape14, 1, {ease: "circ.easeOut", css: {x: "-=51.6861", y: "+=83.1134", rotation: "-=68.36", transformOrigin: "50%, 50%", fill: "#FFC700"}}, "-=0.9")
 .to(shape15, 1, {ease: "circ.easeOut", css: {x: "+=207.8748", y: "-=53.589", rotation: "+=14.86", transformOrigin: "50%, 50%", fill: "#FFF500"}}, "-=0.9")
 
-// 1y, 2xy, 3xy, 7y, 8xy, 9y, 10xy 
-
-// set viewport so lightbulb is positioned correctly
-function viewport600() {
-    lightbulb.setAttribute("viewBox", "-560 -50 1440 500")
-    lightbulb.style.height = "300px"
-    mainPipes.style.bottom = "250px";
-}
-
-// set viewport so animation isn't cut off
-function viewport900() {
-    lightbulb.setAttribute("viewBox", "-560 -83 1440 900");
-    lightbulb.style.height = "540px";
-}
-
-let sunShapes = document.getElementsByClassName("sun-shape");
-let windShapes = document.getElementsByClassName("wind-shape");
-let waterShapes = document.getElementsByClassName("water-shape");
-
+// function to add and remove classes while hovering over sun shapes
 function sunHover(sunHoverShape) {
     sunHoverShape.onmouseenter = function() {
         sunHoverShape.classList.remove("sun-glow");
@@ -213,26 +222,7 @@ function sunHover(sunHoverShape) {
     }
 }
 
-// so no shapes glow or animate when go back to lightbulb
-function stopHover(hoverShape) {
-    hoverShape.onmouseenter = function() {
-        hoverShape.classList.remove("sun-glow");
-        hoverShape.classList.remove("sun-hover");
-        hoverShape.classList.remove("wind-glow");
-        hoverShape.classList.remove("wind-hover");        
-        hoverShape.classList.remove("water-glow");
-        hoverShape.classList.remove("water-hover");
-    }
-    hoverShape.onmouseleave = function() {
-        hoverShape.classList.remove("sun-glow");
-        hoverShape.classList.remove("sun-hover");
-        hoverShape.classList.remove("wind-glow");
-        hoverShape.classList.remove("wind-hover");        
-        hoverShape.classList.remove("water-glow");
-        hoverShape.classList.remove("water-hover");
-    }
-} 
-
+// sun animations when click on SUN on home page
 for (i = 0; i < sunClick.length; i += 1) {
     sunClick[i].onclick = function() {
         suntl.play();
@@ -249,6 +239,7 @@ for (i = 0; i < sunClick.length; i += 1) {
                 shape.classList.add("sun-glow");
             }
 
+            // set hover classes for clickable sun shapes
             sunHover(shape7);
             sunHover(shape8);
             sunHover(shape9);
@@ -266,6 +257,8 @@ for (i = 0; i < sunClick.length; i += 1) {
 }
 
 // WIND ANIMATION
+
+// timeline to animate shapes into position
 let windtl = gsap.timeline({paused: true});
 
 windtl
@@ -286,10 +279,7 @@ windtl
 .to(shape14, 1, {ease: "circ.easeOut", css: {x: "-=417.581", y: "-=236.8879", rotation: "+=25.57", transformOrigin: "50%, 50%", fill: "#09551C"}}, "-=0.9")
 .to(shape15, 1, {ease: "circ.easeOut", css: {x: "-=620.3759", y: "-=113.5079", rotation: "-=24.79", transformOrigin: "50%, 50%", fill: "#71B637"}}, "-=0.9")
 
-// 5xy, 7xy, 8xy, 9xy, 11xy
-
-// Hover on wind shapes
-let windGroup = document.getElementsByClassName("wind-group");
+// function to add and remove classes when hovering over wind shapes
 function windHover(windHoverShape) {
     windHoverShape.onmouseenter = function() {
         windHoverShape.classList.remove("wind-glow");
@@ -301,6 +291,10 @@ function windHover(windHoverShape) {
     }
 }
 
+// let for group of wind shapes that hover and click together
+let windGroup = document.getElementsByClassName("wind-group");
+
+// wind animations when click on WIND on home page
 for (i = 0; i < windClick.length; i += 1) {
     windClick[i].onclick = function() {
         windtl.play();
@@ -319,10 +313,11 @@ for (i = 0; i < windClick.length; i += 1) {
                 shape.classList.add("wind-glow");
             }
 
+            // set hover classes for clickable wind shapes
             windHover(shape6);
             windHover(shape3);
 
-            // hover over group
+            // set hover for clickable wind group
             for (j = 0; j < windGroup.length; j += 1) {
                 windGroup[j].onmouseenter = function() {
                     for (k = 0; k < windGroup.length; k += 1) {
@@ -338,8 +333,6 @@ for (i = 0; i < windClick.length; i += 1) {
                 }
             }
 
-            
-            // DEBUG: had this outside if statement, needed to be inside for pipes not to show up after clicking (worked for sun bc had set up modals already)
             // prevent pipes from showing up
             lightbulb.onclick = hidePipes();
 
@@ -351,41 +344,9 @@ for (i = 0; i < windClick.length; i += 1) {
     }
 }
 
-// windRectangle.onclick = function() {
-//     // viewport900();
-//     // expand viewport
-//     // lightbulb.setAttribute("viewBox", "0 0 963 957.35");
-//     // lightbulb.style.height = "600px"
-//     lightbulb.style.width = "100%";         /// so sides don't get cut off
-
-//     windtl.play();
-//     // so correct modals show up
-//     // shapes clockwise: 8, 10, 7, 9
-//     lightbulb.setAttribute("picture", "wind");
-//     if (lightbulb.getAttribute("picture") === "wind") {
-
-//         // set modal attributes for shapes 7, 8, 9, and 10
-//         shape = shape8;
-//         id = "#wind8";
-//         setModalAttributes();
-//         shape = shape10;
-//         id = "#wind10";
-//         setModalAttributes();
-//         shape = shape7;
-//         id = "#wind7";
-//         setModalAttributes();
-//         shape = shape9;
-//         id = "#wind9";
-//         setModalAttributes();
-        
-//         // prevent pipes from showing up
-//         // ============== NEEDED THIS FOR PIPES NOT TO SHOW UP ============== //
-//         lightbulb.onclick = hidePipes();
-//     }
-// }
-
-
 // WATER ANIMATION
+
+// timeline to animate shapes into position
 let watertl = gsap.timeline({paused: true});
 
 watertl
@@ -406,11 +367,7 @@ watertl
 .to(shape14, 1, {ease: "circ.easeOut", css: {x: "-=288", y: "+=171", rotation: "-=90", transformOrigin: "50%, 50%", fill: "#46A6FF"}}, "-=0.9")
 .to(shape15, 1, {ease: "circ.easeOut", css: {x: "+=130", y: "-=363", rotation: "-=90", transformOrigin: "50%, 50%", fill: "#1C5BFF"}}, "-=0.9")
 
-// 1xy, 2xy, 3xy, 4xy, 9x
-
-// Hover on water shapes
-let waterBigGroup = document.getElementsByClassName("water-big-group");
-let waterSmallGroup = document.getElementsByClassName("water-small-group");
+// function to add and remove classes when hovering over water shapes
 function waterHover(waterHoverShape) {
     waterHoverShape.onmouseenter = function() {
         waterHoverShape.classList.remove("water-glow");
@@ -422,6 +379,11 @@ function waterHover(waterHoverShape) {
     }
 }
 
+// lets for groups of water shapes that hover and click together
+let waterBigGroup = document.getElementsByClassName("water-big-group");
+let waterSmallGroup = document.getElementsByClassName("water-small-group");
+
+// water animations when click on WATER on home page
 for (i = 0; i < waterClick.length; i += 1) {
     waterClick[i].onclick = function() {
         watertl.play();
@@ -440,7 +402,7 @@ for (i = 0; i < waterClick.length; i += 1) {
 
             waterHover(shape13);
             
-            // hover over big group
+            // set hover classes for big clickable water group
             for (j = 0; j < waterBigGroup.length; j += 1) {
                 waterBigGroup[j].onmouseenter = function() {
                     for (k = 0; k < waterBigGroup.length; k += 1) {
@@ -456,7 +418,7 @@ for (i = 0; i < waterClick.length; i += 1) {
                 }
             }
 
-            // hover over small group
+            // set hover classes for small clickable water group
             for (j = 0; j < waterSmallGroup.length; j += 1) {
                 waterSmallGroup[j].onmouseenter = function() {
                     for (k = 0; k < waterSmallGroup.length; k += 1) {
@@ -483,40 +445,7 @@ for (i = 0; i < waterClick.length; i += 1) {
     }
 }
 
-// waterClick.onclick = function() {
-//     // viewport900();
-//     watertl.play();
-
-//     // so correct modals show up
-//     // shapes clockwise: 8, 10, 7, 9
-//     lightbulb.setAttribute("picture", "water");
-//     if (lightbulb.getAttribute("picture") === "water") {
-
-//         // set modal attributes for shapes 7, 8, 9, and 10
-//         shape = shape8;
-//         id = "#water8";
-//         setModalAttributes();
-//         shape = shape10;
-//         id = "#water10";
-//         setModalAttributes();
-//         shape = shape7;
-//         id = "#water7";
-//         setModalAttributes();
-//         shape = shape9;
-//         id = "#water9";
-//         setModalAttributes();
-        
-//         // prevent pipes from showing up
-//         // ============== NEEDED THIS FOR PIPES NOT TO SHOW UP ============== //
-//         lightbulb.onclick = hidePipes();
-//     }
-// }
-
-
-// REVERSE ANIMATIONS
-let sunGlow = document.getElementsByClassName("sun-glow")
-let windGlow = document.getElementsByClassName("sun-glow")
-let waterGlow = document.getElementsByClassName("sun-glow")
+// REVERSE ANIMATIONS TO GO BACK TO HOME
 
 backBtn.onclick = function() {
     suntl.reverse();
@@ -544,19 +473,10 @@ backBtn.onclick = function() {
         removeModalAttributes(waterShapes[i]);
     }
 
-    // DOESN'T WORK
-    // for (i = 0; i < sunGlow.length; i += 1) {
-    //     sunGlow[i].classList.remove("sun-glow");
-    // }
-    // for (i = 0; i < windGlow.length; i += 1) {
-    //     windGlow[i].classList.remove("sun-glow");
-    // }
-    // for (i = 0; i < waterGlow.length; i += 1) {
-    //     waterGlow[i].classList.remove("sun-glow");
-    // }
     setTimeout(function() {                     
-        backBtn.classList.remove("sun-back-btn", "wind-back-btn", "water-back-btn");    // so color stays until button disappears
-        // so doesn't interfere with clicking on words
+        backBtn.classList.remove("sun-back-btn", "wind-back-btn", "water-back-btn");    // delay so color stays until button disappears
+        
+        // so nothing interferes with clicking on words
         backBtn.style.display = "none";
         sunTitle.style.display = "none";
         windTitle.style.display = "none";
@@ -565,8 +485,4 @@ backBtn.onclick = function() {
         windSum.style.display = "none";
         waterSum.style.display = "none";
     }, 3000)
-    // setTimeout(function() {                 
-    //     mainPipes.style.display = "block";
-    // }, 3500);
-    // setTimeout(viewport600, 3500)
 }
