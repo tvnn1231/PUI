@@ -1,3 +1,5 @@
+// LETS
+
 // initial home
 let initialHomeBody = document.getElementById("initial-home-body");
 let lightbulb = document.getElementById("bulb-and-pipes");
@@ -113,12 +115,15 @@ function showBackBtn() {
 }
 
 // display titles of each energy source
+
+// animate opacity of titles
 let titletl = gsap.timeline({paused: true});
 titletl
 .to(sunTitle, 1.5, {css: {opacity: 1}}, 0)
 .to(windTitle, 1.5, {css: {opacity: 1}}, 0)
 .to(waterTitle, 1.5, {css: {opacity: 1}}, 0);
 
+// function to show title depending on which source was chosen
 function showTitle() {
     if (lightbulb.getAttribute("picture") === "sun") {
         sunTitle.style.display = "block";
@@ -189,7 +194,7 @@ function stopHover(hoverShape) {
 
 // SUN ANIMATION
 
-// timeline to animate shapes into position
+// timeline to animate shapes into sun image
 let suntl = gsap.timeline({paused: true});
 
 suntl
@@ -258,7 +263,7 @@ for (i = 0; i < sunClick.length; i += 1) {
 
 // WIND ANIMATION
 
-// timeline to animate shapes into position
+// timeline to animate shapes into wind image
 let windtl = gsap.timeline({paused: true});
 
 windtl
@@ -346,7 +351,7 @@ for (i = 0; i < windClick.length; i += 1) {
 
 // WATER ANIMATION
 
-// timeline to animate shapes into position
+// timeline to animate shapes into water image
 let watertl = gsap.timeline({paused: true});
 
 watertl
@@ -451,12 +456,14 @@ backBtn.onclick = function() {
     suntl.reverse();
     windtl.reverse();
     watertl.reverse();
-    setTimeout(showPipes, 2500)                 // delays pipes re-displaying for 2.5 seconds
     backbtntl.reverse();
     titletl.reverse();
     sumtl.reverse();
+    setTimeout(showPipes, 2500)                 // delays pipes re-displaying for 2.5 seconds
     backToLanding.style.display = "inline";
     lightbulb.setAttribute("picture", "lightbulb");
+
+    // remove pulse and hover classes on all shapes
     for (i = 0; i < sunShapes.length; i += 1) {
         sunShapes[i].classList.remove("sun-glow");
         stopHover(sunShapes[i]);

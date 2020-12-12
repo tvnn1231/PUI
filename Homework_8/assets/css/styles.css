@@ -143,13 +143,15 @@ html body {                         /* Bootstrap defaults to white background un
     padding: 0 10%;             /* so the sides don't get cut off when resizing */
 }
 
-
 #click-on-lightbulb {
     z-index: 1;
     display: block;
     position: relative;
     bottom: 250px;
 }
+
+
+/* BULB AND PIPES  */
 
 .pipes {
     display: none;
@@ -183,7 +185,7 @@ html body {                         /* Bootstrap defaults to white background un
 
 /* ENERGY SOURCE PAGES */
 
-/* Back button */
+/* back button */
 #back-btn {
     position: absolute;
     opacity: 0;
@@ -195,7 +197,7 @@ html body {                         /* Bootstrap defaults to white background un
     font-size: .8em;
 }
 
-/* Titles */
+/* titles */
 
 #sun-title,
 #wind-title,
@@ -210,7 +212,7 @@ html body {                         /* Bootstrap defaults to white background un
     opacity: 0;
 }
 
-/* Summaries */
+/* summaries */
 
 #sun-summary,
 #wind-summary,
@@ -223,7 +225,7 @@ html body {                         /* Bootstrap defaults to white background un
     opacity: 0;
 }
 
-/* Modal */
+/* modal */
 
 #modal-close {
     margin-left: 90%;
